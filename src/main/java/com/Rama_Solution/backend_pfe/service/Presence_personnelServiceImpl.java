@@ -1,5 +1,6 @@
 package com.Rama_Solution.backend_pfe.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +21,14 @@ public class Presence_personnelServiceImpl implements Presence_PersonnelInterfac
 	}
 
 	@Override
-	public Presence_personnel findByDate(Presence_personnel pp) {
-		return presence_personnelRepository.findBy(null, null);
+	public List<Presence_personnel> findByDate(Date date) {
+		return presence_personnelRepository.findByDate(date);
 	}
 
 	@Override
-	public Presence_personnel findByEtat(Presence_personnel pp) {
-		return presence_personnelRepository.findBy(null, null);
+	public List<Presence_personnel> findByEtat(Boolean etat) {
+		return presence_personnelRepository.findByEtat(etat);
+		
 	}
 
 	@Override

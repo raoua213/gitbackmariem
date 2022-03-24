@@ -1,5 +1,6 @@
 package com.Rama_Solution.backend_pfe.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +21,14 @@ public class Presence_eleveServiceImpl implements Presence_EleveInterface {
 	}
 
 	@Override
-	public Presence_eleve findByDate(Presence_eleve pe) {
-		return presence_eleveRepository.findBy(null, null);
+	public List<Presence_eleve> findByDatePE(Date datePE) {
+		System.out.println("findByDatePE");
+		return presence_eleveRepository.findByDatePE(datePE);
 	}
 
 	@Override
-	public Presence_eleve findAllPresent(Presence_eleve pe) {
-		return presence_eleveRepository.findBy(null, null);
-	}
-	
-	@Override
-	public Presence_eleve findAllAbsent(Presence_eleve pe) {
-		return presence_eleveRepository.findBy(null, null);
+	public List<Presence_eleve> findByEtat(Boolean etat) {
+		return presence_eleveRepository.findByEtat(etat);
 	}
 	
 	@Override

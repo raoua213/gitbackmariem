@@ -10,8 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Presence_eleve {
@@ -20,7 +20,9 @@ public class Presence_eleve {
 	private Long idPE;
 	@Column(nullable = false)
 	private boolean etat;
-	@Temporal(TemporalType.DATE)
+	//@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="yyyy-MM-dd")
+	//@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private Date datePE;
 	
 	@ManyToOne

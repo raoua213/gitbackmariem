@@ -4,7 +4,6 @@ package com.Rama_Solution.backend_pfe.entities;
 import java.sql.Blob;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Eleve {
@@ -25,7 +25,7 @@ public class Eleve {
 	private String nom;
 	@Column(nullable = false)
 	private String prenom;
-	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date date_nais;
 	private String genre;
 	private String taille;
@@ -77,10 +77,11 @@ public class Eleve {
 	public Eleve() {
 		super();
 	}
+	
 	public Eleve(Long idEleve, String nom, String prenom, Date date_nais, String genre, String taille, String poid,
 			String vaccination, String maladies, String médicament, String nom_parent, String tel_parent,
-			String email_parent, String adresse, List<Evaluation> fk_evaluation, List<Presence_eleve> presences,
-			Classe eleves, List<Facture> factures) {
+			String email_parent, String adresse, Blob img, List<Evaluation> fk_evaluation,
+			List<Presence_eleve> presences, Classe eleves, List<Facture> factures) {
 		super();
 		this.idEleve = idEleve;
 		this.nom = nom;
@@ -96,6 +97,7 @@ public class Eleve {
 		this.tel_parent = tel_parent;
 		this.email_parent = email_parent;
 		this.adresse = adresse;
+		this.img = img;
 		this.fk_evaluation = fk_evaluation;
 		this.presences = presences;
 		this.eleves = eleves;
@@ -187,6 +189,109 @@ public class Eleve {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
+
+	public Blob getImg() {
+		return img;
+	}
+	public void setImg(Blob img) {
+		this.img = img;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((adresse == null) ? 0 : adresse.hashCode());
+		result = prime * result + ((date_nais == null) ? 0 : date_nais.hashCode());
+		result = prime * result + ((email_parent == null) ? 0 : email_parent.hashCode());
+		result = prime * result + ((genre == null) ? 0 : genre.hashCode());
+		result = prime * result + ((maladies == null) ? 0 : maladies.hashCode());
+		result = prime * result + ((médicament == null) ? 0 : médicament.hashCode());
+		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+		result = prime * result + ((nom_parent == null) ? 0 : nom_parent.hashCode());
+		result = prime * result + ((poid == null) ? 0 : poid.hashCode());
+		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
+		result = prime * result + ((taille == null) ? 0 : taille.hashCode());
+		result = prime * result + ((tel_parent == null) ? 0 : tel_parent.hashCode());
+		result = prime * result + ((vaccination == null) ? 0 : vaccination.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Eleve other = (Eleve) obj;
+		if (adresse == null) {
+			if (other.adresse != null)
+				return false;
+		} else if (!adresse.equals(other.adresse))
+			return false;
+		if (date_nais == null) {
+			if (other.date_nais != null)
+				return false;
+		} else if (!date_nais.equals(other.date_nais))
+			return false;
+		if (email_parent == null) {
+			if (other.email_parent != null)
+				return false;
+		} else if (!email_parent.equals(other.email_parent))
+			return false;
+		if (genre == null) {
+			if (other.genre != null)
+				return false;
+		} else if (!genre.equals(other.genre))
+			return false;
+		if (maladies == null) {
+			if (other.maladies != null)
+				return false;
+		} else if (!maladies.equals(other.maladies))
+			return false;
+		if (médicament == null) {
+			if (other.médicament != null)
+				return false;
+		} else if (!médicament.equals(other.médicament))
+			return false;
+		if (nom == null) {
+			if (other.nom != null)
+				return false;
+		} else if (!nom.equals(other.nom))
+			return false;
+		if (nom_parent == null) {
+			if (other.nom_parent != null)
+				return false;
+		} else if (!nom_parent.equals(other.nom_parent))
+			return false;
+		if (poid == null) {
+			if (other.poid != null)
+				return false;
+		} else if (!poid.equals(other.poid))
+			return false;
+		if (prenom == null) {
+			if (other.prenom != null)
+				return false;
+		} else if (!prenom.equals(other.prenom))
+			return false;
+		if (taille == null) {
+			if (other.taille != null)
+				return false;
+		} else if (!taille.equals(other.taille))
+			return false;
+		if (tel_parent == null) {
+			if (other.tel_parent != null)
+				return false;
+		} else if (!tel_parent.equals(other.tel_parent))
+			return false;
+		if (vaccination == null) {
+			if (other.vaccination != null)
+				return false;
+		} else if (!vaccination.equals(other.vaccination))
+			return false;
+		return true;
+	}
 	@Override
 	public String toString() {
 		return "eleve [idEleve=" + idEleve + ", Nom=" + nom + ", prenom=" + prenom + ", date_nais=" + date_nais
@@ -200,34 +305,7 @@ public class Eleve {
 	public void setPresences(List<Presence_eleve> presences) {
 		this.presences = presences;
 	}
-	public Blob getImg() {
-		return img;
-	}
-	public void setImg(Blob img) {
-		this.img = img;
-	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(adresse, date_nais, email_parent, genre, idEleve, img, maladies, médicament, nom,
-				nom_parent, poid, prenom, taille, tel_parent, vaccination);
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Eleve other = (Eleve) obj;
-		return Objects.equals(adresse, other.adresse) && Objects.equals(date_nais, other.date_nais)
-				&& Objects.equals(email_parent, other.email_parent) && Objects.equals(genre, other.genre)
-				&& Objects.equals(idEleve, other.idEleve) && Objects.equals(img, other.img)
-				&& Objects.equals(maladies, other.maladies) && Objects.equals(médicament, other.médicament)
-				&& Objects.equals(nom, other.nom) && Objects.equals(nom_parent, other.nom_parent)
-				&& Objects.equals(poid, other.poid) && Objects.equals(prenom, other.prenom)
-				&& Objects.equals(taille, other.taille) && Objects.equals(tel_parent, other.tel_parent)
-				&& Objects.equals(vaccination, other.vaccination);
-	}
+	
 
+	
 }

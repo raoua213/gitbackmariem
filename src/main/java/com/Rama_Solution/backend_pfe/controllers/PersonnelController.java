@@ -45,6 +45,7 @@ public class PersonnelController {
 	}	
 	
 	@PutMapping("/updatePersonnel")
+	//@PathVariable Long id,
 	public Personnel updatePersonnel(@RequestBody Personnel p) {
 		return personnelServiceImpl.updatePersonnel(p);
 	}

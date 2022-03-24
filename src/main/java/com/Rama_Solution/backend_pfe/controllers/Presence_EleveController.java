@@ -1,10 +1,13 @@
 package com.Rama_Solution.backend_pfe.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,19 +27,14 @@ public class Presence_EleveController {
 		return pe;
 	}
 
-	@GetMapping("/findByDatePE")
-	public Presence_eleve findByDate(Presence_eleve pe) {
-		return presence_eleveServiceImpl.findByDate(pe);
+	@GetMapping("/findByDatePE/{datePE}")
+	public List<Presence_eleve> findByDate(@DateTimeFormat(pattern = "yyyy-mm-dd") Date datePE) {
+		return presence_eleveServiceImpl.findByDatePE(datePE);
 	}
 
-	@GetMapping("/findAllPresentPE")
-	public Presence_eleve findAllPresent(Presence_eleve pe) {
-		return presence_eleveServiceImpl.findAllPresent(pe);
-	}
-	
-	@GetMapping("/findAllAbsentPE")
-	public Presence_eleve findAllAbsent(Presence_eleve pe) {
-		return presence_eleveServiceImpl.findAllAbsent(pe);
+	@GetMapping("/findByEtat/{etat}")
+	public List<Presence_eleve> findByEtat(@PathVariable Boolean etat) {
+		return presence_eleveServiceImpl.findByEtat(etat);
 	}
 
 	@GetMapping("/findAllPE")

@@ -1,11 +1,14 @@
 package com.Rama_Solution.backend_pfe.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Presence_personnel;
@@ -18,14 +21,19 @@ public class Presence_PersonnelController {
 	private Presence_personnelServiceImpl presence_personnelServiceImpl;
 	
 	@PostMapping("/addPresence_personnel")
-	public Presence_personnel addPresence_personnel(Presence_personnel pp) {
+	public Presence_personnel addPresence_personnel(@RequestBody Presence_personnel pp) {
 		 presence_personnelServiceImpl.addPresence_personnel(pp);
 		 return pp;	
 	}
 	
-	@GetMapping("/findByDatePP")
-	public Presence_personnel findByDate(Presence_personnel pp) {
-		return presence_personnelServiceImpl.findByDate(pp);
+	@GetMapping("/findByDatePP/{date}")
+	public List<Presence_personnel> findByDate(@PathVariable Date date) {
+		return presence_personnelServiceImpl.findByDate(date);
+	}
+	
+	@GetMapping("/findByEtatPP/{etat}")
+	public List<Presence_personnel> findByEtat(@PathVariable Boolean etat) {
+		return presence_personnelServiceImpl.findByEtat(etat);
 	}
 
 	@GetMapping("/findAllPP")
