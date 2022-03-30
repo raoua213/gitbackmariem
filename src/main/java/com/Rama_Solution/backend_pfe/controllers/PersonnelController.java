@@ -38,14 +38,13 @@ public class PersonnelController {
 		
 	}
 	
-	@GetMapping("/getPersonnel")
+	@GetMapping("/getPersonnelById")
 	public Personnel findPersonnelById (Long id){
 		return personnelServiceImpl.findPersonnel(id) ;
 		
 	}	
 	
 	@PutMapping("/updatePersonnel")
-	//@PathVariable Long id,
 	public Personnel updatePersonnel(@RequestBody Personnel p) {
 		return personnelServiceImpl.updatePersonnel(p);
 	}

@@ -4,11 +4,15 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Presence_personnel;
@@ -27,7 +31,7 @@ public class Presence_PersonnelController {
 	}
 	
 	@GetMapping("/findByDatePP/{date}")
-	public List<Presence_personnel> findByDate(@PathVariable Date date) {
+	public List<Presence_personnel> findByDate(@DateTimeFormat(pattern = "yyyy-mm-dd") Date date) {
 		return presence_personnelServiceImpl.findByDate(date);
 	}
 	
@@ -41,4 +45,14 @@ public class Presence_PersonnelController {
 		return presence_personnelServiceImpl.findAllPresence_personnels();
 	}
 
+	@DeleteMapping("/deletePresencePersonnelById")
+	public void deletePresencePersonnelByID(@RequestParam Long id) {
+		presence_personnelServiceImpl.deletePresencePersonnelByID(id);
+	}
+	
+	@PutMapping("/updatePresence_personnel")
+	public Presence_personnel updatePresence_personnel(@RequestBody Presence_personnel pp) {
+		return presence_personnelServiceImpl.updatePresence_personnel(pp);
+		
+	}
 }

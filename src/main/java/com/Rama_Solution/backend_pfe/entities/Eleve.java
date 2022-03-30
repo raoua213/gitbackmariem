@@ -198,25 +198,6 @@ public class Eleve {
 	}
 	
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((adresse == null) ? 0 : adresse.hashCode());
-		result = prime * result + ((date_nais == null) ? 0 : date_nais.hashCode());
-		result = prime * result + ((email_parent == null) ? 0 : email_parent.hashCode());
-		result = prime * result + ((genre == null) ? 0 : genre.hashCode());
-		result = prime * result + ((maladies == null) ? 0 : maladies.hashCode());
-		result = prime * result + ((médicament == null) ? 0 : médicament.hashCode());
-		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
-		result = prime * result + ((nom_parent == null) ? 0 : nom_parent.hashCode());
-		result = prime * result + ((poid == null) ? 0 : poid.hashCode());
-		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
-		result = prime * result + ((taille == null) ? 0 : taille.hashCode());
-		result = prime * result + ((tel_parent == null) ? 0 : tel_parent.hashCode());
-		result = prime * result + ((vaccination == null) ? 0 : vaccination.hashCode());
-		return result;
-	}
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -225,35 +206,10 @@ public class Eleve {
 		if (getClass() != obj.getClass())
 			return false;
 		Eleve other = (Eleve) obj;
-		if (adresse == null) {
-			if (other.adresse != null)
-				return false;
-		} else if (!adresse.equals(other.adresse))
-			return false;
 		if (date_nais == null) {
 			if (other.date_nais != null)
 				return false;
 		} else if (!date_nais.equals(other.date_nais))
-			return false;
-		if (email_parent == null) {
-			if (other.email_parent != null)
-				return false;
-		} else if (!email_parent.equals(other.email_parent))
-			return false;
-		if (genre == null) {
-			if (other.genre != null)
-				return false;
-		} else if (!genre.equals(other.genre))
-			return false;
-		if (maladies == null) {
-			if (other.maladies != null)
-				return false;
-		} else if (!maladies.equals(other.maladies))
-			return false;
-		if (médicament == null) {
-			if (other.médicament != null)
-				return false;
-		} else if (!médicament.equals(other.médicament))
 			return false;
 		if (nom == null) {
 			if (other.nom != null)
@@ -285,13 +241,9 @@ public class Eleve {
 				return false;
 		} else if (!tel_parent.equals(other.tel_parent))
 			return false;
-		if (vaccination == null) {
-			if (other.vaccination != null)
-				return false;
-		} else if (!vaccination.equals(other.vaccination))
-			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "eleve [idEleve=" + idEleve + ", Nom=" + nom + ", prenom=" + prenom + ", date_nais=" + date_nais
@@ -307,5 +259,5 @@ public class Eleve {
 	}
 	
 
-	
+
 }

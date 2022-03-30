@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Activite {
 	@Id 
@@ -18,7 +20,7 @@ public class Activite {
 	@Column(nullable = false)
 	private String nom_activite;
 	private String type;
-	@Column(nullable = false)
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date date_act;
 	@Column(nullable = false)
 	private String horaire_act;

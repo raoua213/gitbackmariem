@@ -34,4 +34,9 @@ public class ClasseServiceImpl implements ClasseInterface {
 		return classeRepository.findAll();
 	}
 
+	@Override
+	public Classe findClasseById(Long id) {
+		return classeRepository.findById(id).get();
+	}
+
 }

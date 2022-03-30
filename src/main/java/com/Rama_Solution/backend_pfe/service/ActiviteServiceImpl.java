@@ -35,4 +35,9 @@ public class ActiviteServiceImpl implements ActiviteInterface {
 		return activiteRepository.findAll();
 	}
 
+	@Override
+	public Activite findActiviteById(Long id) {
+		return activiteRepository.findById(id).get();
+	}
+
 }

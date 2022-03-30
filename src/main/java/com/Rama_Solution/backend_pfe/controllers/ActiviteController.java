@@ -40,4 +40,9 @@ public class ActiviteController {
 	public List<Activite> findAllActivites(){
 		return activiteServiceImpl.findAllActivites();
 	}
+	
+	@GetMapping("/findActiviteById")
+	public Activite findActiviteById(Long id) {
+		return activiteServiceImpl.findActiviteById(id);
+	}
 }

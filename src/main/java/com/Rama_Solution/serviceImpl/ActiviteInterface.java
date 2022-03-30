@@ -9,4 +9,5 @@ public interface ActiviteInterface {
 	Activite updateActivite(Activite act);
 	void deleteActiviteById(Long id);
 	List<Activite> findAllActivites();
+	Activite findActiviteById(Long id);
 }

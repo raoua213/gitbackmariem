@@ -11,4 +11,6 @@ public interface Presence_PersonnelInterface {
 	List<Presence_personnel> findByDate(Date date);
 	List<Presence_personnel> findByEtat(Boolean etat);
 	List<Presence_personnel> findAllPresence_personnels();
+	void deletePresencePersonnelByID(Long id);
+	Presence_personnel updatePresence_personnel(Presence_personnel pp);
 }

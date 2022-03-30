@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity 
 public class Evaluation {
@@ -16,7 +18,7 @@ public class Evaluation {
 	private Long idEvaluation;
 	@Column(nullable = false)
 	private double note;
-	@Column(nullable = false)
+	@Temporal(TemporalType.DATE)
 	private Date date;
 	private String remarque;
 	

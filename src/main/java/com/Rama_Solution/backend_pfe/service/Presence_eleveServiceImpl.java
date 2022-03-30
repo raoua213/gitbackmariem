@@ -36,4 +36,31 @@ public class Presence_eleveServiceImpl implements Presence_EleveInterface {
 		return presence_eleveRepository.findAll();
 	}
 
+	@Override
+	public void deletePresenceEleveByID(Long id) {
+		presence_eleveRepository.deleteById(id);
+	}
+
+	@Override
+	public Presence_eleve updatePresence_eleve(Presence_eleve pe) {
+		return presence_eleveRepository.save(pe);
+	}
+
+	@Override
+	public List<Presence_eleve> findBetween2Date(Date datePEStart, Date datePEEnd) {
+		return presence_eleveRepository.findBetween2Date(datePEStart, datePEEnd);
+	}
+
+
+	@Override
+	public List<Presence_eleve> findByEtat_Classe(Boolean etat, Long idClasse) {
+		return presence_eleveRepository.findByEtat_Classe(etat, idClasse);
+	}
+
+	@Override
+	public List<Presence_eleve> findByDate_Etat_Classe(Date datePE, Boolean etat, Long idClasse) {
+		return presence_eleveRepository.findByDate_Etat_Classe(datePE, etat, idClasse);
+	}
+
+	
 }

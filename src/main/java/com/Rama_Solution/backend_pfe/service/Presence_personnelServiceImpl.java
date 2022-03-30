@@ -36,4 +36,14 @@ public class Presence_personnelServiceImpl implements Presence_PersonnelInterfac
 		return presence_personnelRepository.findAll();
 	}
 
+	@Override
+	public void deletePresencePersonnelByID(Long id) {
+		presence_personnelRepository.deleteById(id);
+	}
+
+	@Override
+	public Presence_personnel updatePresence_personnel(Presence_personnel pp) {
+		return presence_personnelRepository.save(pp);
+	}
+
 }

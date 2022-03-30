@@ -6,10 +6,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Presence_eleve;
@@ -27,19 +30,44 @@ public class Presence_EleveController {
 		return pe;
 	}
 
-	@GetMapping("/findByDatePE/{datePE}")
-	public List<Presence_eleve> findByDate(@DateTimeFormat(pattern = "yyyy-mm-dd") Date datePE) {
+	@GetMapping("/findByDatePE")
+	public List<Presence_eleve> findByDate(@RequestParam("datePE") @DateTimeFormat(pattern = "yyyy-mm-dd") Date datePE) {
 		return presence_eleveServiceImpl.findByDatePE(datePE);
 	}
 
+	@GetMapping("/findBetween2Date")
+	public List<Presence_eleve> findBetween2Date(@RequestParam("datePEStart") @DateTimeFormat(pattern = "yyyy-mm-dd") Date datePEStart, @RequestParam("datePEEnd")  @DateTimeFormat(pattern = "yyyy-mm-dd") Date datePEEnd) {
+		return presence_eleveServiceImpl.findBetween2Date(datePEStart, datePEEnd);
+	}
+	
 	@GetMapping("/findByEtat/{etat}")
 	public List<Presence_eleve> findByEtat(@PathVariable Boolean etat) {
 		return presence_eleveServiceImpl.findByEtat(etat);
 	}
 
+	@GetMapping("/findByEtat&Classe/{etat}/{idClasse}")
+	public List<Presence_eleve> findByEtat_Classe(@PathVariable Boolean etat, @PathVariable Long idClasse) {
+		return presence_eleveServiceImpl.findByEtat_Classe(etat, idClasse);
+	}
+	
 	@GetMapping("/findAllPE")
 	public List<Presence_eleve> findAllPresence_eleves() {
 		return presence_eleveServiceImpl.findAllPresence_eleves();
 	}
-
+	
+	@DeleteMapping("/deletePresenceEleveById")
+	public void deletePresenceEleveByID(@RequestParam Long id) {
+		presence_eleveServiceImpl.deletePresenceEleveByID(id);
+	}
+	
+	@PutMapping("/updatePresence_eleve")
+	public Presence_eleve updatePresence_eleve(@RequestBody Presence_eleve pe) {
+		return presence_eleveServiceImpl.updatePresence_eleve(pe);
+		
+	}
+	
+	@GetMapping("/findByDate_Etat_Classe/{datePE}/{etat}/{idClasse}")
+	public List<Presence_eleve> findByDate_Etat_Classe(@PathVariable("datePE") @DateTimeFormat(pattern = "yyyy-mm-dd") Date datePE, @PathVariable Boolean etat, @PathVariable Long idClasse) {
+		return presence_eleveServiceImpl.findByDate_Etat_Classe(datePE, etat, idClasse);
+	}
 }

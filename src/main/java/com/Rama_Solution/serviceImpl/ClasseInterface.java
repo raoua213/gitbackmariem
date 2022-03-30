@@ -8,4 +8,5 @@ public interface ClasseInterface {
 	Classe updateClasse(Classe c);
 	void deleteCalsseByID(Long id);
 	List<Classe> findAllClasses();
+	Classe findClasseById(Long id);
 }

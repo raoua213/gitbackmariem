@@ -32,7 +32,7 @@ public class ClasseController {
 		
 	}
 	
-	@DeleteMapping("/deleteCalsseByID")
+	@DeleteMapping("/deleteCalsseById")
 	public String deleteCalsseByID(@RequestParam Long id) {
 		classeServiceImpl.deleteCalsseByID(id);
 		return "Classe Deleted!";
@@ -42,4 +42,10 @@ public class ClasseController {
 	public List<Classe> findAllClasses() {
 		return classeServiceImpl.findAllClasses();
 	}
+	
+	@GetMapping("/findClasseById")
+	public 	Classe findClasseById(Long id) {
+		return classeServiceImpl.findClasseById(id);
+	}
+
 }

@@ -2,6 +2,7 @@ package com.Rama_Solution.backend_pfe.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +14,13 @@ import com.Rama_Solution.serviceImpl.EleveInterface;
 public class EleveServiceImpl implements EleveInterface{
 	@Autowired
 	EleveRepository eleveRepository;
+	
 
 	@Override
-	public Eleve addEleve(Eleve e) {
-		return eleveRepository.save(e);
+	public void addEleve(Eleve e) {
+		 eleveRepository.save(e);
 	}
+
 
 	@Override
 	public Eleve updateEleve(Eleve e) {
@@ -36,7 +39,13 @@ public class EleveServiceImpl implements EleveInterface{
 	
 	@Override
 	public List<Eleve> findAllEleves() {
-		return eleveRepository.findAll();
+			return eleveRepository.findAll();
+			
+	}
+
+	@Override
+	public List<Eleve> findEleveByClasse(Long IDCL) {
+		return eleveRepository.findEleveByClasse(IDCL);
 	}
 	
 
