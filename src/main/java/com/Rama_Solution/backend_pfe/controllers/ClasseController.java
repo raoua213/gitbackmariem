@@ -16,7 +16,7 @@ import com.Rama_Solution.backend_pfe.entities.Classe;
 import com.Rama_Solution.backend_pfe.service.ClasseServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ClasseController {
 	@Autowired
 	private ClasseServiceImpl classeServiceImpl;

@@ -19,7 +19,7 @@ import com.Rama_Solution.backend_pfe.entities.Presence_personnel;
 import com.Rama_Solution.backend_pfe.service.Presence_personnelServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Presence_PersonnelController {
 	@Autowired
 	private Presence_personnelServiceImpl presence_personnelServiceImpl;

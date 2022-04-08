@@ -16,7 +16,7 @@ import com.Rama_Solution.backend_pfe.entities.Activite;
 import com.Rama_Solution.backend_pfe.service.ActiviteServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ActiviteController {
 	@Autowired
 	private ActiviteServiceImpl activiteServiceImpl;

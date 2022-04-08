@@ -16,7 +16,7 @@ import com.Rama_Solution.backend_pfe.entities.Emploi;
 import com.Rama_Solution.backend_pfe.service.EmploiServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class EmploiController {
 	@Autowired
 	private EmploiServiceImpl emploiServiceImpl;

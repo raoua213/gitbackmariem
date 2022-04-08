@@ -17,7 +17,7 @@ import com.Rama_Solution.backend_pfe.service.PersonnelServiceImpl;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PersonnelController {
 	
 	@Autowired

@@ -49,6 +49,7 @@ public class Eleve {
 	@OneToMany (mappedBy = "presence")
 	private List<Presence_eleve> presences;
 	
+	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	@ManyToOne
 	private Classe eleves;
 	

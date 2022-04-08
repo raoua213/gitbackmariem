@@ -11,7 +11,6 @@ import com.Rama_Solution.serviceImpl.ActiviteInterface;
 
 @Service
 public class ActiviteServiceImpl implements ActiviteInterface {
-
 	@Autowired
 	ActiviteRepository activiteRepository;
 	

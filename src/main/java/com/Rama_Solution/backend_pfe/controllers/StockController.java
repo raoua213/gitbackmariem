@@ -16,7 +16,7 @@ import com.Rama_Solution.backend_pfe.entities.Stock;
 import com.Rama_Solution.backend_pfe.service.StockServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class StockController {
 	@Autowired
 	private StockServiceImpl stockServiceImpl;

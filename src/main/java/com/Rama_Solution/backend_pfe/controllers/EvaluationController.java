@@ -15,7 +15,7 @@ import com.Rama_Solution.backend_pfe.entities.Evaluation;
 import com.Rama_Solution.backend_pfe.service.EvaluationServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class EvaluationController {
 	@Autowired
 	private EvaluationServiceImpl evaluationServiceImpl;

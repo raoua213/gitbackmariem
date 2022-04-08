@@ -16,7 +16,7 @@ import com.Rama_Solution.backend_pfe.entities.Article;
 import com.Rama_Solution.backend_pfe.service.ArticleServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ArticleController {
 	@Autowired
 	private ArticleServiceImpl articleServiceImpl;

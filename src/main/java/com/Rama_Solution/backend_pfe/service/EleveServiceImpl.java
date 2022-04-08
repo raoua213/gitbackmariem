@@ -44,7 +44,7 @@ public class EleveServiceImpl implements EleveInterface{
 	}
 
 	@Override
-	public List<Eleve> findEleveByClasse(Long IDCL) {
+	public List<Eleve> findEleveByIdClasse(Long IDCL) {
 		return eleveRepository.findEleveByClasse(IDCL);
 	}
 	

@@ -1,6 +1,5 @@
 package com.Rama_Solution.backend_pfe.entities;
 
-
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,29 +9,39 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Entity 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity
 public class Facture {
-	@Id 
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idFacture;
 	@Column(nullable = false)
-	private Date last_payed_month;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date from_date;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date to_date;
 	private double montent;
-	
+	private boolean etat;
+
 	@ManyToOne
 	private Eleve factures;
-	
+
 	public Facture() {
 		super();
 	}
 
-	public Facture(Long idFacture, Date last_payed_month, double montent) {
+	
+	public Facture(Long idFacture, Date from_date, Date to_date, double montent, boolean etat, Eleve factures) {
 		super();
 		this.idFacture = idFacture;
-		this.last_payed_month = last_payed_month;
+		this.from_date = from_date;
+		this.to_date = to_date;
 		this.montent = montent;
-		
+		this.etat = etat;
+		this.factures = factures;
 	}
+
 
 	public Long getIdFacture() {
 		return idFacture;
@@ -42,12 +51,20 @@ public class Facture {
 		this.idFacture = idFacture;
 	}
 
-	public Date getLast_payed_month() {
-		return last_payed_month;
+	public Date getFrom_date() {
+		return from_date;
 	}
 
-	public void setLast_payed_month(Date last_payed_month) {
-		this.last_payed_month = last_payed_month;
+	public void setFrom_date(Date from_date) {
+		this.from_date = from_date;
+	}
+
+	public Date getTo_date() {
+		return to_date;
+	}
+
+	public void setTo_date(Date to_date) {
+		this.to_date = to_date;
 	}
 
 	public double getMontent() {
@@ -59,12 +76,31 @@ public class Facture {
 	}
 
 
-
-	@Override
-	public String toString() {
-		return "facture [idFacture=" + idFacture + ", last_payed_month=" + last_payed_month + ", montent=" + montent
-				 + "]";
+	public boolean isEtat() {
+		return etat;
 	}
 
 
+	public void setEtat(boolean etat) {
+		this.etat = etat;
+	}
+
+
+	public Eleve getFactures() {
+		return factures;
+	}
+
+
+	public void setFactures(Eleve factures) {
+		this.factures = factures;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Facture [idFacture=" + idFacture + ", from_date=" + from_date + ", to_date=" + to_date + ", montent="
+				+ montent + ", etat=" + etat + ", factures=" + factures + "]";
+	}
+
+	
 }

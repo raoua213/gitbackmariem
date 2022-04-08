@@ -18,7 +18,7 @@ import com.Rama_Solution.backend_pfe.entities.Eleve;
 import com.Rama_Solution.backend_pfe.service.EleveServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class EleveController {
 	@Autowired
 	private EleveServiceImpl eleveServiceImpl;
@@ -47,7 +47,7 @@ public class EleveController {
 	}
 
 	@GetMapping("/getEleveById")
-	public Eleve findEleveById(Long id) {
+	public Eleve findEleveById(@RequestParam Long id) {
 		return eleveServiceImpl.findEleve(id);
 
 	}
@@ -63,9 +63,9 @@ public class EleveController {
 		return "Eleve Deleted!";
 	}
 
-	@GetMapping("/findEleveByClasse/{IDCL}")
-	public List<Eleve> findEleveByClasse(@PathVariable Long IDCL) {
-		return eleveServiceImpl.findEleveByClasse(IDCL);
+	@GetMapping("/findEleveByIdClasse/{IDCL}")
+	public List<Eleve> findEleveByIdClasse(@PathVariable Long IDCL) {
+		return eleveServiceImpl.findEleveByIdClasse(IDCL);
 	}
 
 }

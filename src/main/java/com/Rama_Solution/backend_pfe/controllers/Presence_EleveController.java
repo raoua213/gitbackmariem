@@ -19,7 +19,7 @@ import com.Rama_Solution.backend_pfe.entities.Presence_eleve;
 import com.Rama_Solution.backend_pfe.service.Presence_eleveServiceImpl;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:4200")
 public class Presence_EleveController {
 	@Autowired
 	private Presence_eleveServiceImpl presence_eleveServiceImpl;

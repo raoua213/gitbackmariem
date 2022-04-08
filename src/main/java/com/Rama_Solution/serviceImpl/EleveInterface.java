@@ -10,6 +10,6 @@ public interface EleveInterface {
 	void deleteEleveById(Long id);
 	Eleve findEleve(Long id);
 	List<Eleve> findAllEleves();
-	List<Eleve> findEleveByClasse(Long IDCL);
+	List<Eleve> findEleveByIdClasse(Long IDCL);
 
 }
