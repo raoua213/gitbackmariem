@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Evaluation;
-import com.Rama_Solution.backend_pfe.service.EvaluationServiceImpl;
+import com.Rama_Solution.backend_pfe.serviceImpl.EvaluationServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -35,8 +35,8 @@ public class EvaluationController {
 		return evaluationServiceImpl.findEvaluationByIdACT_IdEl(idEleve, idActivite);
 	}
 	
-	@GetMapping("/findEvaluationById")
-	public Evaluation findEvaluationById(Long id) {
+	@GetMapping("/findEvaluationById/{id}")
+	public Evaluation findEvaluationById(@PathVariable Long id) {
 		return evaluationServiceImpl.findEvaluationById(id);
 	} 
 

@@ -6,4 +6,5 @@ import com.Rama_Solution.backend_pfe.entities.Activite;
 
 public interface ActiviteRepository extends JpaRepository<Activite, Long> {
 
+	//findActiviteByIdPersonnel
 }

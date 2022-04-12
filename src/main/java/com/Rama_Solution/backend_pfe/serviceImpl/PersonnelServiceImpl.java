@@ -1,13 +1,13 @@
-package com.Rama_Solution.backend_pfe.service;
+package com.Rama_Solution.backend_pfe.serviceImpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Rama_Solution.Interface.PersonnelInterface;
 import com.Rama_Solution.backend_pfe.entities.Personnel;
 import com.Rama_Solution.backend_pfe.repos.PersonnelRepository;
-import com.Rama_Solution.serviceImpl.PersonnelInterface;
 
 @Service
 public class PersonnelServiceImpl implements PersonnelInterface {
@@ -38,6 +38,11 @@ public class PersonnelServiceImpl implements PersonnelInterface {
 	@Override
 	public List<Personnel> findAllPersonnels() {
 		return personnelRepository.findAll();
+	}
+
+	@Override
+	public List<Personnel> findPersonnelsByFonction(String fonction) {
+		return personnelRepository.findPersonnelsByFonction(fonction);
 	}
 
 }

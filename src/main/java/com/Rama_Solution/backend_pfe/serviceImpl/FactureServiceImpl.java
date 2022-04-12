@@ -1,13 +1,14 @@
-package com.Rama_Solution.backend_pfe.service;
+package com.Rama_Solution.backend_pfe.serviceImpl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Rama_Solution.Interface.FactureInterface;
 import com.Rama_Solution.backend_pfe.entities.Facture;
 import com.Rama_Solution.backend_pfe.repos.FactureRepository;
-import com.Rama_Solution.serviceImpl.FactureInterface;
 
 @Service
 public class FactureServiceImpl implements FactureInterface {
@@ -32,6 +33,21 @@ public class FactureServiceImpl implements FactureInterface {
 	@Override
 	public Facture findFactureById(Long id) {
 		return factureRepository.findById(id).get();
+	}
+
+	@Override
+	public List<Facture> findFactureByIdEleve(Long IDEleve) {
+		return factureRepository.findFactureByIdEleve(IDEleve);
+	}
+
+	@Override
+	public List<Facture> findFactureByIdEleve_Date(Long IDEleve, Date DateF) {
+		return factureRepository.findFactureByIdEleve_Date(IDEleve, DateF);
+	}
+
+	@Override
+	public List<Facture> findElevesPayed_Date(Date DateF) {
+		return factureRepository.findElevesPayed_Date(DateF);
 	}
 
 }

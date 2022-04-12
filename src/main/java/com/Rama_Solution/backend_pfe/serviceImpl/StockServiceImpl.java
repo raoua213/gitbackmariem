@@ -1,13 +1,13 @@
-package com.Rama_Solution.backend_pfe.service;
+package com.Rama_Solution.backend_pfe.serviceImpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Rama_Solution.Interface.StockInterface;
 import com.Rama_Solution.backend_pfe.entities.Stock;
 import com.Rama_Solution.backend_pfe.repos.StockRepository;
-import com.Rama_Solution.serviceImpl.StockInterface;
 
 @Service
 public class StockServiceImpl implements StockInterface {

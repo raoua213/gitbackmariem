@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Stock;
-import com.Rama_Solution.backend_pfe.service.StockServiceImpl;
+import com.Rama_Solution.backend_pfe.serviceImpl.StockServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -32,7 +32,7 @@ public class StockController {
 	}
 	
 	@GetMapping("/findStockById")
-	public Stock findStockById(Long id) {
+	public Stock findStockById(@RequestParam Long id) {
 		return stockServiceImpl.findStockById(id);
 	}
 	

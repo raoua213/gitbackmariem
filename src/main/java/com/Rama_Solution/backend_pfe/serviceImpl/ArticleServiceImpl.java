@@ -1,13 +1,13 @@
-package com.Rama_Solution.backend_pfe.service;
+package com.Rama_Solution.backend_pfe.serviceImpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Rama_Solution.Interface.ArticleInterface;
 import com.Rama_Solution.backend_pfe.entities.Article;
 import com.Rama_Solution.backend_pfe.repos.ArticleRepository;
-import com.Rama_Solution.serviceImpl.ArticleInterface;
 
 @Service
 public class ArticleServiceImpl implements ArticleInterface {

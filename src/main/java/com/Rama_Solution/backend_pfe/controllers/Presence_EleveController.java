@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Presence_eleve;
-import com.Rama_Solution.backend_pfe.service.Presence_eleveServiceImpl;
+import com.Rama_Solution.backend_pfe.serviceImpl.Presence_eleveServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")

@@ -42,6 +42,9 @@ public class Eleve {
 	private String email_parent;
 	private String adresse;
 	private Blob img;
+	//@Column(name = "picByte", length = 1000)
+	//private byte[] img;
+
 	
 	@OneToMany (mappedBy = "fk_evaluation")
 	private List<Evaluation> fk_evaluation;
@@ -49,9 +52,8 @@ public class Eleve {
 	@OneToMany (mappedBy = "presence")
 	private List<Presence_eleve> presences;
 	
-	//@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	@ManyToOne
-	private Classe eleves;
+	private Classe fk_eleves;
 	
 	@OneToMany (mappedBy = "factures")
 	private List<Facture> factures;
@@ -63,10 +65,10 @@ public class Eleve {
 		this.fk_evaluation = fk_evaluation;
 	}
 	public Classe getEleves() {
-		return eleves;
+		return fk_eleves;
 	}
-	public void setEleves(Classe eleves) {
-		this.eleves = eleves;
+	public void setEleves(Classe fk_eleves) {
+		this.fk_eleves = fk_eleves;
 	}
 	public List<Facture> getFactures() {
 		return factures;
@@ -82,7 +84,7 @@ public class Eleve {
 	public Eleve(Long idEleve, String nom, String prenom, Date date_nais, String genre, String taille, String poid,
 			String vaccination, String maladies, String médicament, String nom_parent, String tel_parent,
 			String email_parent, String adresse, Blob img, List<Evaluation> fk_evaluation,
-			List<Presence_eleve> presences, Classe eleves, List<Facture> factures) {
+			List<Presence_eleve> presences, Classe fk_eleves, List<Facture> factures) {
 		super();
 		this.idEleve = idEleve;
 		this.nom = nom;
@@ -101,7 +103,7 @@ public class Eleve {
 		this.img = img;
 		this.fk_evaluation = fk_evaluation;
 		this.presences = presences;
-		this.eleves = eleves;
+		this.fk_eleves = fk_eleves;
 		this.factures = factures;
 	}
 	public Long getIdEleve() {

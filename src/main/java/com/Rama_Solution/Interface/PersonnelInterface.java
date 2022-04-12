@@ -1,5 +1,5 @@
 
-package com.Rama_Solution.serviceImpl;
+package com.Rama_Solution.Interface;
 
 import java.util.List;
 
@@ -11,4 +11,5 @@ public interface PersonnelInterface {
 	void deletePersonnelById(Long id);
 	Personnel findPersonnel(Long id);
 	List<Personnel> findAllPersonnels();
+	List<Personnel> findPersonnelsByFonction(String fonction);
 }

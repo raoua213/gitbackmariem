@@ -17,18 +17,18 @@ public class Classe {
 	@Column(nullable = false)
 	private String nom;
 
-	@OneToMany (mappedBy = "eleves")
-	private List<Eleve> eleves;
+	@OneToMany (mappedBy = "fk_eleves")
+	private List<Eleve> fk_eleves;
 	
 	
 	
 
 	public List<Eleve> getEleves() {
-		return eleves;
+		return fk_eleves;
 	}
 
-	public void setEleves(List<Eleve> eleves) {
-		this.eleves = eleves;
+	public void setEleves(List<Eleve> fk_eleves) {
+		this.fk_eleves = fk_eleves;
 	}
 
 	public Classe() {

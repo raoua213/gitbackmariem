@@ -1,4 +1,4 @@
-package com.Rama_Solution.serviceImpl;
+package com.Rama_Solution.Interface;
 
 import java.util.Date;
 import java.util.List;

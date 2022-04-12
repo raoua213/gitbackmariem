@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Classe;
-import com.Rama_Solution.backend_pfe.service.ClasseServiceImpl;
+import com.Rama_Solution.backend_pfe.serviceImpl.ClasseServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -44,7 +44,7 @@ public class ClasseController {
 	}
 	
 	@GetMapping("/findClasseById")
-	public 	Classe findClasseById(Long id) {
+	public 	Classe findClasseById(@RequestParam Long id) {
 		return classeServiceImpl.findClasseById(id);
 	}
 

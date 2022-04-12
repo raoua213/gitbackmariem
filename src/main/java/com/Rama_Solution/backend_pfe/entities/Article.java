@@ -1,13 +1,11 @@
 package com.Rama_Solution.backend_pfe.entities;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity 
 public class Article {
@@ -20,26 +18,12 @@ public class Article {
 	private double prix;
 	private String categorie;
 	
-	@OneToMany (mappedBy = "consoms")
-	private List<Consomable> consoms;
+	@ManyToOne
+	private Consomable fk_Art;
 	
+	@ManyToOne
+	private Stock fk_Article;
 	
-	public List<Consomable> getConsoms() {
-		return consoms;
-	}
-	public void setConsoms(List<Consomable> consoms) {
-		this.consoms = consoms;
-	}
-	@OneToMany (mappedBy = "stocks")
-	private List<Stock> stocks;
-	
-	
-	public List<Stock> getStocks() {
-		return stocks;
-	}
-	public void setStocks(List<Stock> stocks) {
-		this.stocks = stocks;
-	}
 	public Article() {
 		super();
 	}

@@ -1,4 +1,4 @@
-package com.Rama_Solution.backend_pfe.service;
+package com.Rama_Solution.backend_pfe.serviceImpl;
 
 import java.util.Date;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Rama_Solution.Interface.Presence_EleveInterface;
 import com.Rama_Solution.backend_pfe.entities.Presence_eleve;
 import com.Rama_Solution.backend_pfe.repos.Presence_EleveRepository;
-import com.Rama_Solution.serviceImpl.Presence_EleveInterface;
 
 @Service 
 public class Presence_eleveServiceImpl implements Presence_EleveInterface {

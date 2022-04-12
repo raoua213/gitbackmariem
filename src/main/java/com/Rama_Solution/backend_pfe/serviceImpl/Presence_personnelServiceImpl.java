@@ -1,4 +1,4 @@
-package com.Rama_Solution.backend_pfe.service;
+package com.Rama_Solution.backend_pfe.serviceImpl;
 
 import java.util.Date;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Rama_Solution.Interface.Presence_PersonnelInterface;
 import com.Rama_Solution.backend_pfe.entities.Presence_personnel;
 import com.Rama_Solution.backend_pfe.repos.Presence_PersonnelRepository;
-import com.Rama_Solution.serviceImpl.Presence_PersonnelInterface;
 
 @Service 
 public class Presence_personnelServiceImpl implements Presence_PersonnelInterface {

@@ -1,13 +1,14 @@
 package com.Rama_Solution.backend_pfe.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 @Entity 
@@ -20,15 +21,16 @@ public class Consomable {
 	@Column(nullable = false)
 	private Date date;
 	
-	@ManyToOne
-	private Article consoms;
+	
+	@OneToMany (mappedBy = "fk_Art")
+	private List<Article> fk_Art;
 	
 	
-	public Article getConsoms() {
-		return consoms;
+	public List<Article> getFk_Art() {
+		return fk_Art;
 	}
-	public void setConsoms(Article consoms) {
-		this.consoms = consoms;
+	public void setFk_Art(List<Article> fk_Art) {
+		this.fk_Art = fk_Art;
 	}
 	public Consomable() {
 		super();

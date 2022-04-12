@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Presence_personnel;
-import com.Rama_Solution.backend_pfe.service.Presence_personnelServiceImpl;
+import com.Rama_Solution.backend_pfe.serviceImpl.Presence_personnelServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -30,9 +30,9 @@ public class Presence_PersonnelController {
 		 return pp;	
 	}
 	
-	@GetMapping("/findByDatePP/{date}")
-	public List<Presence_personnel> findByDate(@DateTimeFormat(pattern = "yyyy-mm-dd") Date date) {
-		return presence_personnelServiceImpl.findByDate(date);
+	@GetMapping("/findByDatePP/{datePP}")
+	public List<Presence_personnel> findByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-mm-dd") Date datePP) {
+		return presence_personnelServiceImpl.findByDate(datePP);
 	}
 	
 	@GetMapping("/findByEtatPP/{etat}")

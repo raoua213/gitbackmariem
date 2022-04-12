@@ -1,13 +1,14 @@
 package com.Rama_Solution.backend_pfe.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity 
 public class Stock {
@@ -19,15 +20,18 @@ public class Stock {
 	private Date date_fin_stock;
 	private Date date_commande;
 	
-	@ManyToOne
-	private Article stocks;
 	
-	public Article getStocks() {
-		return stocks;
+	@OneToMany (mappedBy = "fk_Article")
+	private List<Article> fk_Article;
+	
+	
+	
+	public List<Article> getFk_Article() {
+		return fk_Article;
 	}
 
-	public void setStocks(Article stocks) {
-		this.stocks = stocks;
+	public void setFk_Article(List<Article> fk_Article) {
+		this.fk_Article = fk_Article;
 	}
 
 	public Stock() {

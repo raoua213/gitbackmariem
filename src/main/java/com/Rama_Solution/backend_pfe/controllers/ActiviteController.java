@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Activite;
-import com.Rama_Solution.backend_pfe.service.ActiviteServiceImpl;
+import com.Rama_Solution.backend_pfe.serviceImpl.ActiviteServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -42,7 +42,7 @@ public class ActiviteController {
 	}
 	
 	@GetMapping("/findActiviteById")
-	public Activite findActiviteById(Long id) {
+	public Activite findActiviteById(@RequestParam Long id) {
 		return activiteServiceImpl.findActiviteById(id);
 	}
 }

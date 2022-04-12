@@ -24,10 +24,10 @@ public interface Presence_EleveRepository extends JpaRepository<Presence_eleve, 
 	@Query("SELECT pe FROM  Presence_eleve pe WHERE pe.etat=:etat")
 	List<Presence_eleve> findByEtat(@Param("etat") Boolean etat);
 	
-	@Query("SELECT pe, e.nom, e.prenom FROM  Presence_eleve pe , Eleve e WHERE pe.etat=:etat and pe.presence.idEleve=e.idEleve and e.eleves.idClasse=:idClasse")
+	@Query("SELECT pe, e.nom, e.prenom FROM  Presence_eleve pe , Eleve e WHERE pe.etat=:etat and pe.presence.idEleve=e.idEleve and e.fk_eleves.idClasse=:idClasse")
 	List<Presence_eleve> findByEtat_Classe(@Param("etat") Boolean etat, @Param("idClasse") Long idClasse);
 
-	@Query("SELECT pe, e.nom, e.prenom FROM  Presence_eleve pe , Eleve e WHERE pe.datePE = :datePE and pe.etat=:etat and pe.presence.idEleve=e.idEleve and e.eleves.idClasse=:idClasse")
+	@Query("SELECT pe, e.nom, e.prenom FROM  Presence_eleve pe , Eleve e WHERE pe.datePE = :datePE and pe.etat=:etat and pe.presence.idEleve=e.idEleve and e.fk_eleves.idClasse=:idClasse")
 	List<Presence_eleve> findByDate_Etat_Classe(@Param("datePE") Date datePE, @Param("etat") Boolean etat, @Param("idClasse") Long idClasse);
 
 }

@@ -1,13 +1,13 @@
-package com.Rama_Solution.backend_pfe.service;
+package com.Rama_Solution.backend_pfe.serviceImpl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.Rama_Solution.Interface.ActiviteInterface;
 import com.Rama_Solution.backend_pfe.entities.Activite;
 import com.Rama_Solution.backend_pfe.repos.ActiviteRepository;
-import com.Rama_Solution.serviceImpl.ActiviteInterface;
 
 @Service
 public class ActiviteServiceImpl implements ActiviteInterface {

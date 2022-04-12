@@ -6,4 +6,5 @@ import com.Rama_Solution.backend_pfe.entities.Article;
 
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 
+	//findArticleByCatégorie
 }

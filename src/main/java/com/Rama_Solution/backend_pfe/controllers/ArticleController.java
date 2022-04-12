@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Article;
-import com.Rama_Solution.backend_pfe.service.ArticleServiceImpl;
+import com.Rama_Solution.backend_pfe.serviceImpl.ArticleServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -32,7 +32,7 @@ public class ArticleController {
 	}
 	
 	@GetMapping("/findArticleById")
-	public Article findArticleById(Long id) {
+	public Article findArticleById(@RequestParam Long id) {
 		return articleServiceImpl.findArticleById(id);
 	}
 	

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Personnel;
-import com.Rama_Solution.backend_pfe.service.PersonnelServiceImpl;
+import com.Rama_Solution.backend_pfe.serviceImpl.PersonnelServiceImpl;
 
 
 @RestController
@@ -38,11 +39,16 @@ public class PersonnelController {
 		
 	}
 	
-	@GetMapping("/getPersonnelById")
-	public Personnel findPersonnelById (Long id){
+	@GetMapping("/getPersonnelById/{id}")
+	public Personnel findPersonnelById (@PathVariable Long id){
 		return personnelServiceImpl.findPersonnel(id) ;
 		
 	}	
+	
+	@GetMapping("/findPersonnelsByFonction/{fonction}")
+	public List<Personnel> findPersonnelsByFonction(@PathVariable String fonction) {
+		return personnelServiceImpl.findPersonnelsByFonction(fonction);
+	}
 	
 	@PutMapping("/updatePersonnel")
 	public Personnel updatePersonnel(@RequestBody Personnel p) {

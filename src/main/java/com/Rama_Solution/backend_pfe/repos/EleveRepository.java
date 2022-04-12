@@ -10,7 +10,7 @@ import com.Rama_Solution.backend_pfe.entities.Eleve;
 
 public interface EleveRepository extends JpaRepository<Eleve, Long> {
 	
-	@Query("SELECT e FROM Eleve e WHERE e.eleves.idClasse=:IDCL")
+	@Query("SELECT e FROM Eleve e WHERE e.fk_eleves.idClasse=:IDCL")
 	List<Eleve> findEleveByClasse(@Param("IDCL") Long IDCL);
 
 }
