@@ -55,6 +55,20 @@ public class PersonnelController {
 		return personnelServiceImpl.updatePersonnel(p);
 	}
 	
+	@PutMapping("/updateCongesTaken")
+	public int updateCongesTaken(@RequestParam int nb_jour, @RequestParam Long IdPersonnel) {
+		personnelServiceImpl.updateCongesTaken(nb_jour, IdPersonnel);
+		return nb_jour;
+	}
+
+	@PutMapping("/updateCongesReste/{IdPersonnel}")
+	public String updateCongesReste(@PathVariable Long IdPersonnel) {
+		personnelServiceImpl.updateCongesReste(IdPersonnel);
+		return "Conges updated!";
+		
+	}
+
+	
 	@DeleteMapping("/deletePersonnelById")
 	public String deletePersonnelById(@RequestParam Long id) {
 		personnelServiceImpl.deletePersonnelById(id);

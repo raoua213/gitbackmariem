@@ -16,7 +16,7 @@ public class Classe {
 	private Long idClasse;
 	@Column(nullable = false)
 	private String nom;
-
+	
 	@OneToMany (mappedBy = "fk_eleves")
 	private List<Eleve> fk_eleves;
 	
@@ -35,9 +35,12 @@ public class Classe {
 		super();
 	}
 
-	public Classe(String nom) {
+	
+	public Classe(Long idClasse, String nom, int nombre_eleves) {
 		super();
+		this.idClasse = idClasse;
 		this.nom = nom;
+		//this.nombre_eleves = nombre_eleves;
 	}
 
 	public Long getIdClasse() {
@@ -56,10 +59,19 @@ public class Classe {
 		this.nom = nom;
 	}
 
+	//public int getNombre_eleves() {
+	//	return nombre_eleves;
+//	}
+
+//	public void setNombre_eleves(int nombre_eleves) {
+		//this.nombre_eleves = nombre_eleves;
+	//}
+
 	@Override
 	public String toString() {
-		return "classe [nom=" + nom + "]";
+		return "Classe [idClasse=" + idClasse + ", nom=" + nom + ", nombre_eleves=" + "]";
 	}
+	
 	
 	
 }

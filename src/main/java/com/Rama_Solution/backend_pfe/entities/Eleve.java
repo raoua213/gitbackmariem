@@ -25,7 +25,7 @@ public class Eleve {
 	private String nom;
 	@Column(nullable = false)
 	private String prenom;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date date_nais;
 	private String genre;
 	private String taille;

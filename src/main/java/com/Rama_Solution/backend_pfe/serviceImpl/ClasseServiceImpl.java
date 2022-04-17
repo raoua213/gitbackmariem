@@ -39,4 +39,9 @@ public class ClasseServiceImpl implements ClasseInterface {
 		return classeRepository.findById(id).get();
 	}
 
+	/*@Override
+	public List<Classe> countNbEleve() {
+		return classeRepository.countNbEleve();
+	}*/
+
 }

@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Classe;
@@ -32,8 +32,8 @@ public class ClasseController {
 		
 	}
 	
-	@DeleteMapping("/deleteCalsseById")
-	public String deleteCalsseByID(@RequestParam Long id) {
+	@DeleteMapping("/deleteCalsseById/{id}")
+	public String deleteCalsseByID(@PathVariable Long id) {
 		classeServiceImpl.deleteCalsseByID(id);
 		return "Classe Deleted!";
 	}
@@ -43,9 +43,15 @@ public class ClasseController {
 		return classeServiceImpl.findAllClasses();
 	}
 	
-	@GetMapping("/findClasseById")
-	public 	Classe findClasseById(@RequestParam Long id) {
+	@GetMapping("/findClasseById/{id}")
+	public 	Classe findClasseById(@PathVariable Long id) {
 		return classeServiceImpl.findClasseById(id);
 	}
+	
+	/*@GetMapping("/NbEleveByNomClasse")
+	public List<Classe> countNbEleve() {
+		return classeServiceImpl.countNbEleve();
+	}*/
+
 
 }

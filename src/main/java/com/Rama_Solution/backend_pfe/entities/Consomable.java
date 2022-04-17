@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Entity 
 public class Consomable {
@@ -19,7 +21,8 @@ public class Consomable {
 	@Column(nullable = false)
 	private double quantite_consome;
 	@Column(nullable = false)
-	private Date date;
+	@JsonFormat(pattern="dd-MM-yyyy")
+	private Date dateCon;
 	
 	
 	@OneToMany (mappedBy = "fk_Art")
@@ -35,11 +38,11 @@ public class Consomable {
 	public Consomable() {
 		super();
 	}
-	public Consomable(Long idConsomable, double quantite_consome, Date date) {
+	public Consomable(Long idConsomable, double quantite_consome, Date dateCon) {
 		super();
 		this.idConsomable = idConsomable;
 		this.quantite_consome = quantite_consome;
-		this.date = date;
+		this.dateCon = dateCon;
 	}
 	public Long getIdConsomable() {
 		return idConsomable;
@@ -53,15 +56,16 @@ public class Consomable {
 	public void setQuantite_consome(double quantite_consome) {
 		this.quantite_consome = quantite_consome;
 	}
-	public Date getDate() {
-		return date;
+	
+	public Date getDateCon() {
+		return dateCon;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDateCon(Date dateCon) {
+		this.dateCon = dateCon;
 	}
 	@Override
 	public String toString() {
-		return "consomable [idConsomable=" + idConsomable + ", quantite_consome=" + quantite_consome + ", date=" + date
+		return "consomable [idConsomable=" + idConsomable + ", quantite_consome=" + quantite_consome + ", dateCon=" + dateCon
 				+ "]";
 	}
 	

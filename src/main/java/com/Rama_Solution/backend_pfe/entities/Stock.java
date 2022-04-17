@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity 
 public class Stock {
 	@Id 
@@ -17,6 +19,7 @@ public class Stock {
 	private Long idStock;
 	@Column(nullable = false)
 	private double quantite;
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date date_fin_stock;
 	private Date date_commande;
 	

@@ -17,9 +17,9 @@ public class Facture {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idFacture;
 	@Column(nullable = false)
-	@JsonFormat(pattern = "yyyy-mm-dd")
+	@JsonFormat(pattern = "dd-mm-yyyy")
 	private Date from_date;
-	@JsonFormat(pattern = "yyyy-mm-dd")
+	@JsonFormat(pattern = "dd-mm-yyyy")
 	private Date to_date;
 	private double montent;
 	private boolean etat;

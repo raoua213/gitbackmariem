@@ -10,4 +10,5 @@ public interface ActiviteInterface {
 	void deleteActiviteById(Long id);
 	List<Activite> findAllActivites();
 	Activite findActiviteById(Long id);
+	List<Activite> findActiviteByIdPersonnel(Long IDPersonnel);
 }

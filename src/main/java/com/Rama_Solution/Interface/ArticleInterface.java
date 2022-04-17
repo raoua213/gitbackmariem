@@ -10,4 +10,5 @@ public interface ArticleInterface {
 	Article findArticleById(Long id);
 	void deleteArticleById(Long id);
 	Article updateArticle(Article art);
+	List<Article> findArticleByCatégorie(String cat);
 }

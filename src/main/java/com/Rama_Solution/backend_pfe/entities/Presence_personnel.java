@@ -1,6 +1,5 @@
 package com.Rama_Solution.backend_pfe.entities;
 
-import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -10,20 +9,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Entity 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+@Entity
 public class Presence_personnel {
-	@Id 
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPP;
 	@Column(nullable = false)
 	private boolean etat;
 	@Column(nullable = false)
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date date;
-	private Blob justif;
-	
+
 	@ManyToOne
 	private Personnel presence;
-	
 
 	public Personnel getPresence() {
 		return presence;
@@ -37,12 +37,12 @@ public class Presence_personnel {
 		super();
 	}
 
-	public Presence_personnel(Long idPP, boolean etat, Date date, Blob justif) {
+	public Presence_personnel(Long idPP, boolean etat, Date date) {
 		super();
 		this.idPP = idPP;
 		this.etat = etat;
 		this.date = date;
-		this.justif = justif;
+		
 	}
 
 	public Long getIdPP() {
@@ -69,20 +69,10 @@ public class Presence_personnel {
 		this.date = date;
 	}
 
-	public Blob getJustif() {
-		return justif;
-	}
-
-	public void setJustif(Blob justif) {
-		this.justif = justif;
-	}
 
 	@Override
 	public String toString() {
-		return "Presence_personnel [idPP=" + idPP + ", etat=" + etat + ", date=" + date + ", justif=" + justif
-				+ ", presence=" + presence + "]";
+		return "Presence_personnel [idPP=" + idPP + ", etat=" + etat + ", date=" + date +  ", presence=" + presence + "]";
 	}
 
-	
-	
 }

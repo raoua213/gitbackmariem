@@ -9,4 +9,6 @@ public interface ClasseInterface {
 	void deleteCalsseByID(Long id);
 	List<Classe> findAllClasses();
 	Classe findClasseById(Long id);
+	//List<Classe> countNbEleve();
+
 }

@@ -31,7 +31,7 @@ public class Presence_PersonnelController {
 	}
 	
 	@GetMapping("/findByDatePP/{datePP}")
-	public List<Presence_personnel> findByDate(@PathVariable @DateTimeFormat(pattern = "yyyy-mm-dd") Date datePP) {
+	public List<Presence_personnel> findByDate(@PathVariable @DateTimeFormat(pattern = "dd-mm-yyyy") Date datePP) {
 		return presence_personnelServiceImpl.findByDate(datePP);
 	}
 	

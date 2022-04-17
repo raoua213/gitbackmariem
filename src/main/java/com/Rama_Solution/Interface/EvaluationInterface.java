@@ -8,6 +8,8 @@ public interface EvaluationInterface {
 	Evaluation addEvaluation(Evaluation ev);
 	Evaluation updateEvaluation(Evaluation ev);
 	List<Evaluation> findEvaluationByIdACT_IdEl(Long idEleve, Long idActivite);
+	List<Evaluation> findEvaluationByIdEl(Long idEleve);
 	Evaluation findEvaluationById(Long id); 
+	void deleteEvaluationById(Long id);
 
 }

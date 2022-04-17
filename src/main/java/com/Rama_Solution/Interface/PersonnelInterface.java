@@ -12,4 +12,6 @@ public interface PersonnelInterface {
 	Personnel findPersonnel(Long id);
 	List<Personnel> findAllPersonnels();
 	List<Personnel> findPersonnelsByFonction(String fonction);
+	void updateCongesTaken(int nb_jour,Long IdPersonnel);
+	void updateCongesReste(Long IdPersonnel);
 }

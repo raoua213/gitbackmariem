@@ -20,7 +20,7 @@ public class Activite {
 	@Column(nullable = false)
 	private String nom_activite;
 	private String type;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date date_act;
 	@Column(nullable = false)
 	private String horaire_act;

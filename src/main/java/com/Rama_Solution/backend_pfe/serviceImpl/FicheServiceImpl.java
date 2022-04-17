@@ -1,5 +1,6 @@
 package com.Rama_Solution.backend_pfe.serviceImpl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,16 @@ public class FicheServiceImpl implements FicheInterface {
 	@Override
 	public void deleteFicheById(Long id) {
 		ficheRepository.deleteById(id);
+	}
+
+	@Override
+	public List<Fiche_de_paie> findFicheByIdPersonnel(Long IDP) {
+		return ficheRepository.findFicheByIdPersonnel(IDP);
+	}
+
+	@Override
+	public List<Fiche_de_paie> findFicheByIdPersonnel_Date(Long IDP, Date dateF) {
+		return ficheRepository.findFicheByIdPersonnel_Date(IDP, dateF);
 	}
 
 }

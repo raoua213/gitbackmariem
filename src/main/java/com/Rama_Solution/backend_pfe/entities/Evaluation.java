@@ -8,8 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity 
 public class Evaluation {
@@ -18,7 +18,7 @@ public class Evaluation {
 	private Long idEvaluation;
 	@Column(nullable = false)
 	private double note;
-	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date date;
 	private String remarque;
 	

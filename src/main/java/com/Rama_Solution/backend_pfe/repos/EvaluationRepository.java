@@ -12,4 +12,7 @@ public interface EvaluationRepository extends JpaRepository<Evaluation, Long> {
 
 	@Query("SELECT ev FROM Evaluation ev where ev.fk_evaluation.idEleve=:idEleve and ev.fk_evaluation2.idActivite=:idActivite")
 	List<Evaluation> findEvaluationByIdACT_IdEl(@Param("idEleve") Long idEleve, @Param("idActivite") Long idActivite);
+	@Query("SELECT ev FROM Evaluation ev where ev.fk_evaluation.idEleve=:idEleve")
+	List<Evaluation> findEvaluationByIdEl(@Param("idEleve") Long idEleve);
+
 }

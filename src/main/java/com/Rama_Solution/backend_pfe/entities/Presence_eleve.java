@@ -21,7 +21,7 @@ public class Presence_eleve {
 	@Column(nullable = false)
 	private boolean etat;
 	//@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	//@DateTimeFormat(pattern = "yyyy-mm-dd")
 	private Date datePE;
 	

@@ -34,4 +34,14 @@ public class EvaluationServiceImpl implements EvaluationInterface {
 		return evaluationRepository.findById(id).get();
 	}
 
+	@Override
+	public List<Evaluation> findEvaluationByIdEl(Long idEleve) {
+		return evaluationRepository.findEvaluationByIdEl(idEleve);
+	}
+
+	@Override
+	public void deleteEvaluationById(Long id) {
+		evaluationRepository.deleteById(id);
+	}
+
 }

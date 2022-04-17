@@ -45,4 +45,14 @@ public class PersonnelServiceImpl implements PersonnelInterface {
 		return personnelRepository.findPersonnelsByFonction(fonction);
 	}
 
+	@Override
+	public void updateCongesTaken(int nb_jour, Long IdPersonnel) {
+		personnelRepository.updateCongesTaken(nb_jour, IdPersonnel);
+	}
+
+	@Override
+	public void updateCongesReste(Long IdPersonnel) {
+		personnelRepository.updateCongesReste(IdPersonnel);
+	}
+
 }

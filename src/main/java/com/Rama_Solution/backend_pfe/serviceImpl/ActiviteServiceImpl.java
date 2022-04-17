@@ -39,4 +39,9 @@ public class ActiviteServiceImpl implements ActiviteInterface {
 		return activiteRepository.findById(id).get();
 	}
 
+	@Override
+	public List<Activite> findActiviteByIdPersonnel(Long IDPersonnel) {
+		return activiteRepository.findActiviteByIdPersonnel(IDPersonnel);
+	}
+
 }

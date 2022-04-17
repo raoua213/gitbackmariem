@@ -30,13 +30,13 @@ public class Presence_EleveController {
 		return pe;
 	}
 
-	@GetMapping("/findByDatePE")
-	public List<Presence_eleve> findByDate(@RequestParam("datePE") @DateTimeFormat(pattern = "yyyy-mm-dd") Date datePE) {
+	@GetMapping("/findByDatePE/{datePE}")
+	public List<Presence_eleve> findByDate(@PathVariable("datePE") @DateTimeFormat(pattern = "dd-mm-yyyy") Date datePE) {
 		return presence_eleveServiceImpl.findByDatePE(datePE);
 	}
 
-	@GetMapping("/findBetween2Date")
-	public List<Presence_eleve> findBetween2Date(@RequestParam("datePEStart") @DateTimeFormat(pattern = "yyyy-mm-dd") Date datePEStart, @RequestParam("datePEEnd")  @DateTimeFormat(pattern = "yyyy-mm-dd") Date datePEEnd) {
+	@GetMapping("/findBetween2Date/{datePEStart}/{datePEEnd}")
+	public List<Presence_eleve> findBetween2Date(@PathVariable("datePEStart") @DateTimeFormat(pattern = "dd-mm-yyyy") Date datePEStart, @PathVariable("datePEEnd")  @DateTimeFormat(pattern = "dd-mm-yyyy") Date datePEEnd) {
 		return presence_eleveServiceImpl.findBetween2Date(datePEStart, datePEEnd);
 	}
 	

@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Fiche_de_paie {
 	@Id 
@@ -16,7 +18,8 @@ public class Fiche_de_paie {
 	private Long idFDP;
 	@Column(nullable = false)
 	private double salaire_brut;
-	private Date date;
+	@JsonFormat(pattern="dd-MM-yyyy")
+	private Date dateF;
 	private double impot;
 	private String cnss;
 	
@@ -26,11 +29,11 @@ public class Fiche_de_paie {
 	public Fiche_de_paie() {
 		super();
 	}
-	public Fiche_de_paie(Long idFDP, double salaire_brut, Date date, double impot, String cnss) {
+	public Fiche_de_paie(Long idFDP, double salaire_brut, Date dateF, double impot, String cnss) {
 		super();
 		this.idFDP = idFDP;
 		this.salaire_brut = salaire_brut;
-		this.date = date;
+		this.dateF = dateF;
 		this.impot = impot;
 		this.cnss = cnss;
 	}
@@ -46,11 +49,11 @@ public class Fiche_de_paie {
 	public void setSalaire_brut(double salaire_brut) {
 		this.salaire_brut = salaire_brut;
 	}
-	public Date getDate() {
-		return date;
+	public Date getDateF() {
+		return dateF;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate(Date dateF) {
+		this.dateF = dateF;
 	}
 	public double getImpot() {
 		return impot;
@@ -66,7 +69,7 @@ public class Fiche_de_paie {
 	}
 	@Override
 	public String toString() {
-		return "fiche_de_paie [idFDP=" + idFDP + ", salaire_brut=" + salaire_brut + ", date=" + date + ", impot="
+		return "fiche_de_paie [idFDP=" + idFDP + ", salaire_brut=" + salaire_brut + ", dateF=" + dateF + ", impot="
 				+ impot + ", cnss=" + cnss + "]";
 	}
 	

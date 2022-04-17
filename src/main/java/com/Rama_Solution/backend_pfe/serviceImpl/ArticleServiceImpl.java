@@ -39,4 +39,9 @@ public class ArticleServiceImpl implements ArticleInterface {
 		return articleRepository.save(art);
 	}
 
+	@Override
+	public List<Article> findArticleByCatégorie(String cat) {
+		return articleRepository.findArticleByCatégorie(cat);
+	}
+
 }

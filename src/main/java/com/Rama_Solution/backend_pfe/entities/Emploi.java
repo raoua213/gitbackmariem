@@ -11,12 +11,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 public class Emploi {
 	@Id 
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long idEmploi;
 	@Column(nullable = false)
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date date_emp;
 	@Column(nullable = false)
 	private String salle;
