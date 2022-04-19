@@ -1,8 +1,11 @@
 package com.Rama_Solution.backend_pfe.controllers;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +38,19 @@ public class EmploiController {
 	public Emploi findEmploiById(@PathVariable Long id) {
 		return emploiServiceImpl.findEmploiById(id);
 	}
+	
+	@GetMapping("/findDispoPersonnel/{IdPersonnel}/{DateE}")
+	public String findDispoPersonnel(@PathVariable Long IdPersonnel, @PathVariable  @DateTimeFormat(pattern = "dd-mm-yyyy") Date DateE) {
+		List<Emploi> lis = new ArrayList<Emploi>();
+			lis= emploiServiceImpl.findDispoPersonnel(IdPersonnel, DateE);
+			if (lis.size()>0) {
+				return "Personnel disponible ";
+			}
+			else {
+				return "Personnel non disponible";
+			}
+	}
+
 	
 	@DeleteMapping("/deleteEmploiById/{id}")
 	public String deleteEmploiById(@PathVariable Long id) {

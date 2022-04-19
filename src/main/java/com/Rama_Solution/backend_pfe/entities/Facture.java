@@ -1,5 +1,6 @@
 package com.Rama_Solution.backend_pfe.entities;
 
+import java.io.IOException;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+
+import org.apache.pdfbox.pdmodel.PDPage;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -23,7 +27,9 @@ public class Facture {
 	private Date to_date;
 	private double montent;
 	private boolean etat;
-
+	//Creating PDF document object 
+    
+	
 	@ManyToOne
 	private Eleve factures;
 

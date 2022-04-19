@@ -1,6 +1,7 @@
 package com.Rama_Solution.backend_pfe.serviceImpl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import com.Rama_Solution.backend_pfe.repos.Presence_EleveRepository;
 public class Presence_eleveServiceImpl implements Presence_EleveInterface {
 	@Autowired
 	Presence_EleveRepository presence_eleveRepository;
+	
 
 	@Override
 	public Presence_eleve addPresence_eleve(Presence_eleve pe) {
@@ -61,6 +63,14 @@ public class Presence_eleveServiceImpl implements Presence_EleveInterface {
 	public List<Presence_eleve> findByDate_Etat_Classe(Date datePE, Boolean etat, Long idClasse) {
 		return presence_eleveRepository.findByDate_Etat_Classe(datePE, etat, idClasse);
 	}
+
+	@Override
+	public void addAllPresencesByIdClasse(Long idClasse, HashMap<Date, Boolean> donnees) {
+		
+		presence_eleveRepository.save(null);
+	}
+
+	
 
 	
 }

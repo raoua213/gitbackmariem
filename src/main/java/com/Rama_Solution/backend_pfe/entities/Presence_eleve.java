@@ -40,6 +40,13 @@ public class Presence_eleve {
 		this.presence = presence;
 	}
 
+	public Presence_eleve( Date datePE, boolean etat, Eleve presence) {
+		super();
+		this.etat = etat;
+		this.datePE = datePE;
+		this.presence = presence;
+	}
+
 	public Long getIdPE() {
 		return idPE;
 	}

@@ -1,5 +1,6 @@
 package com.Rama_Solution.backend_pfe.serviceImpl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,11 @@ public class EmploiServiceImpl implements EmploiInterface {
 	@Override
 	public Emploi updateEmploi(Emploi em) {
 		return emploiRepository.save(em);
+	}
+
+	@Override
+	public List<Emploi> findDispoPersonnel(Long IdPersonnel, Date DateE) {
+		return emploiRepository.findDispoPersonnel(IdPersonnel, DateE);
 	}
 
 }

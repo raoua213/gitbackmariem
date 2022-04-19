@@ -23,4 +23,6 @@ public interface PersonnelRepository extends JpaRepository<Personnel, Long> {
 	@Query("update Personnel P set P.nb_jour_reste = P.nb_jour_initiale - nb_jour_taken Where P.idPersonnel= :IdPersonnel")
 	void updateCongesReste(@Param("IdPersonnel") Long IdPersonnel);
 
+	@Query("SELECT DISTINCT fonction FROM Personnel ")
+	List<String> findAllFonction();
 }
