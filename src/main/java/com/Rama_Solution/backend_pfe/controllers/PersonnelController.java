@@ -61,12 +61,12 @@ public class PersonnelController {
 		return nb_jour;
 	}
 
-	@PutMapping("/updateCongesReste/{IdPersonnel}")
-	public String updateCongesReste(@PathVariable Long IdPersonnel) {
-		personnelServiceImpl.updateCongesReste(IdPersonnel);
-		return "Conges updated!";
+	//@PutMapping("/updateCongesReste/{IdPersonnel}")
+	//public String updateCongesReste(@PathVariable Long IdPersonnel) {
+		//personnelServiceImpl.updateCongesReste(IdPersonnel);
+		//return "Conges updated!";
 		
-	}
+	//}
 
 	
 	@DeleteMapping("/deletePersonnelById")

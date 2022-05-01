@@ -1,9 +1,7 @@
 package com.Rama_Solution.Interface;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-
 
 import com.Rama_Solution.backend_pfe.entities.Presence_eleve;
 
@@ -17,6 +15,6 @@ public interface Presence_EleveInterface {
 	List<Presence_eleve> findAllPresence_eleves();
 	void deletePresenceEleveByID(Long id);
 	Presence_eleve updatePresence_eleve(Presence_eleve  pe);
-	void addAllPresencesByIdClasse(Long idClasse, HashMap<Date, Boolean> donnees);
+	List<Presence_eleve> findAllPresencesByIdEleve(Long IdEleve);
 	
 }

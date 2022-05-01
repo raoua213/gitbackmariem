@@ -1,9 +1,7 @@
 package com.Rama_Solution.backend_pfe.controllers;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -17,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.Rama_Solution.backend_pfe.entities.Eleve;
 import com.Rama_Solution.backend_pfe.entities.Presence_eleve;
-import com.Rama_Solution.backend_pfe.serviceImpl.EleveServiceImpl;
 import com.Rama_Solution.backend_pfe.serviceImpl.Presence_eleveServiceImpl;
 
 @RestController
@@ -27,8 +23,6 @@ import com.Rama_Solution.backend_pfe.serviceImpl.Presence_eleveServiceImpl;
 public class Presence_EleveController {
 	@Autowired
 	private Presence_eleveServiceImpl presence_eleveServiceImpl;
-	@Autowired
-	EleveServiceImpl eleveServiceImpl;
 	
 	@PostMapping("/addPresence_eleve")
 	public 	Presence_eleve addPresence_eleve(@RequestBody Presence_eleve pe) {
@@ -73,21 +67,15 @@ public class Presence_EleveController {
 	}
 	
 	@GetMapping("/findByDate_Etat_Classe/{datePE}/{etat}/{idClasse}")
-	public List<Presence_eleve> findByDate_Etat_Classe(@PathVariable("datePE") @DateTimeFormat(pattern = "yyyy-mm-dd") Date datePE, @PathVariable Boolean etat, @PathVariable Long idClasse) {
+	public List<Presence_eleve> findByDate_Etat_Classe(@PathVariable("datePE") @DateTimeFormat(pattern = "dd-mm-yyyy") Date datePE, @PathVariable Boolean etat, @PathVariable Long idClasse) {
 		return presence_eleveServiceImpl.findByDate_Etat_Classe(datePE, etat, idClasse);
 	}
 	
-	@PostMapping("/addAllPresences/{idClasse}")
-	public void addAllPresencesByIdClasse(@PathVariable Long idClasse, @RequestParam HashMap<Date, Boolean> donnees) {
-		List<Eleve> lisE = eleveServiceImpl.findEleveByIdClasse(idClasse);
-		for (Eleve lis : lisE) {
-			for (Entry<Date, Boolean> m : donnees.entrySet()) {
-				Presence_eleve pe = new Presence_eleve(m.getKey(), m.getValue(), lis);
-				presence_eleveServiceImpl.addPresence_eleve(pe);
-				}
-			}
-		}
-		
+	@GetMapping("/findAllPresencesByIdEleve")
+	List<Presence_eleve> findAllPresencesByIdEleve(@RequestParam Long IdEleve) {
+		return presence_eleveServiceImpl.findAllPresencesByIdEleve(IdEleve);
+	}
+	
 	
 
 }

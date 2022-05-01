@@ -44,10 +44,10 @@ public class EmploiController {
 		List<Emploi> lis = new ArrayList<Emploi>();
 			lis= emploiServiceImpl.findDispoPersonnel(IdPersonnel, DateE);
 			if (lis.size()>0) {
-				return "Personnel disponible ";
+				return "Personnel non disponible ";
 			}
 			else {
-				return "Personnel non disponible";
+				return "Personnel disponible";
 			}
 	}
 

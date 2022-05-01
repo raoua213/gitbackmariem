@@ -30,5 +30,8 @@ public interface Presence_EleveRepository extends JpaRepository<Presence_eleve, 
 	@Query("SELECT pe, e.nom, e.prenom FROM  Presence_eleve pe , Eleve e WHERE pe.datePE = :datePE and pe.etat=:etat and pe.presence.idEleve=e.idEleve and e.fk_eleves.idClasse=:idClasse")
 	List<Presence_eleve> findByDate_Etat_Classe(@Param("datePE") Date datePE, @Param("etat") Boolean etat, @Param("idClasse") Long idClasse);
 
+	@Query("Select pe From Presence_eleve pe , Eleve e where pe.presence.idEleve = :IdEleve and pe.presence.idEleve=e.idEleve")
+	List<Presence_eleve> findAllPresencesByIdEleve(@Param("IdEleve") Long IdEleve);
+
 
 }

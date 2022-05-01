@@ -29,13 +29,16 @@ public class Personnel {
 	private double salaire_de_base;
 	private int nb_jour_initiale;
 	private int nb_jour_taken;
-	private int nb_jour_reste;
+	
 	
 	@OneToMany (mappedBy = "fiche")
 	private List<Fiche_de_paie> fiches;
 	
 	@OneToMany (mappedBy = "fk_emploi2")
 	private List<Emploi> fk_emploi2;
+	
+	@OneToMany (mappedBy = "presence")
+	private List<Presence_personnel> presences;
 	
 	public List<Emploi> getFk_emploi2() {
 		return fk_emploi2;
@@ -53,8 +56,6 @@ public class Personnel {
 		this.fiches = fiches;
 	}
 
-	@OneToMany (mappedBy = "presence")
-	private List<Presence_personnel> presences;
 	
 	public List<Presence_personnel> getPresences() {
 		return presences;
@@ -69,7 +70,7 @@ public class Personnel {
 	}
 
 	public Personnel(String cin, String nom, String prenom, String mail, String tel, String fonction,
-			int salaire_de_base, int nb_jour_initiale, int nb_jour_taken, int nb_jour_reste) {
+			int salaire_de_base, int nb_jour_initiale, int nb_jour_taken) {
 		super();
 		this.cin = cin;
 		this.nom = nom;
@@ -80,7 +81,7 @@ public class Personnel {
 		this.salaire_de_base = salaire_de_base;
 		this.nb_jour_initiale = nb_jour_initiale;
 		this.nb_jour_taken = nb_jour_taken;
-		this.nb_jour_reste = nb_jour_reste;
+		
 	}
 
 	public Long getIdPersonnel() {
@@ -145,7 +146,7 @@ public class Personnel {
 		return salaire_de_base;
 	}
 
-	public void setSalaire_de_base(int salaire_de_base) {
+	public void setSalaire_de_base(double salaire_de_base) {
 		this.salaire_de_base = salaire_de_base;
 	}
 
@@ -165,25 +166,17 @@ public class Personnel {
 		this.nb_jour_taken = nb_jour_taken;
 	}
 
-	public int getNb_jour_reste() {
-		return nb_jour_reste;
-	}
-
-	public void setNb_jour_reste(int nb_jour_reste) {
-		this.nb_jour_reste = nb_jour_reste;
-	}
 
 	@Override
 	public String toString() {
 		return "personnel [idPersonnel=" + idPersonnel + ", cin=" + cin + ", nom=" + nom + ", prenom=" + prenom
 				+ ", mail=" + mail + ", tel=" + tel + ", fonction=" + fonction + ", salaire_de_base=" + salaire_de_base
-				+ ", nb_jour_initiale=" + nb_jour_initiale + ", nb_jour_taken=" + nb_jour_taken + ", nb_jour_reste="
-				+ nb_jour_reste + "]";
+				+ ", nb_jour_initiale=" + nb_jour_initiale + ", nb_jour_taken=" + nb_jour_taken + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cin, fonction, idPersonnel, mail, nb_jour_initiale, nb_jour_reste, nb_jour_taken, nom,
+		return Objects.hash(cin, fonction, idPersonnel, mail, nb_jour_initiale, nb_jour_taken, nom,
 				prenom, salaire_de_base, tel);
 	}
 
@@ -198,8 +191,7 @@ public class Personnel {
 		Personnel other = (Personnel) obj;
 		return Objects.equals(cin, other.cin) && Objects.equals(fonction, other.fonction)
 				&& Objects.equals(idPersonnel, other.idPersonnel) && Objects.equals(mail, other.mail)
-				&& nb_jour_initiale == other.nb_jour_initiale && nb_jour_reste == other.nb_jour_reste
-				&& nb_jour_taken == other.nb_jour_taken && Objects.equals(nom, other.nom)
+				&& nb_jour_initiale == other.nb_jour_initiale && nb_jour_taken == other.nb_jour_taken && Objects.equals(nom, other.nom)
 				&& Objects.equals(prenom, other.prenom)
 				&& Double.doubleToLongBits(salaire_de_base) == Double.doubleToLongBits(other.salaire_de_base)
 				&& Objects.equals(tel, other.tel);

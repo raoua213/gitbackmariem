@@ -1,7 +1,6 @@
 package com.Rama_Solution.backend_pfe.serviceImpl;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,12 +64,9 @@ public class Presence_eleveServiceImpl implements Presence_EleveInterface {
 	}
 
 	@Override
-	public void addAllPresencesByIdClasse(Long idClasse, HashMap<Date, Boolean> donnees) {
-		
-		presence_eleveRepository.save(null);
+	public List<Presence_eleve> findAllPresencesByIdEleve(Long IdEleve) {
+		return presence_eleveRepository.findAllPresencesByIdEleve(IdEleve);
 	}
-
-	
 
 	
 }

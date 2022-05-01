@@ -47,24 +47,31 @@ public class Presence_eleve {
 		this.presence = presence;
 	}
 
+	
 	public Long getIdPE() {
 		return idPE;
 	}
+
 	public void setIdPE(Long idPE) {
 		this.idPE = idPE;
 	}
-	public boolean isEtat() {
+
+	public boolean getEtat() {
 		return etat;
 	}
+
 	public void setEtat(boolean etat) {
 		this.etat = etat;
 	}
+
 	public Date getDatePE() {
 		return datePE;
 	}
+
 	public void setDatePE(Date datePE) {
 		this.datePE = datePE;
 	}
+
 	@Override
 	public String toString() {
 		return "presence_eleve [idPE=" + idPE + ", etat=" + etat + ", datePE=" + datePE + "]";
