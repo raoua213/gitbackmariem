@@ -50,6 +50,11 @@ public class PersonnelServiceImpl implements PersonnelInterface {
 		personnelRepository.updateCongesTaken(nb_jour, IdPersonnel);
 	}
 
+	@Override
+	public Personnel findByCIN(String cin) {
+		return personnelRepository.findByCIN(cin);
+	}
+
 	//@Override
 	//public void updateCongesReste(Long IdPersonnel) {
 		//personnelRepository.updateCongesReste(IdPersonnel);

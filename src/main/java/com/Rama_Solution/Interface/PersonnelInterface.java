@@ -13,5 +13,5 @@ public interface PersonnelInterface {
 	List<Personnel> findAllPersonnels();
 	List<Personnel> findPersonnelsByFonction(String fonction);
 	void updateCongesTaken(int nb_jour,Long IdPersonnel);
-	
+	Personnel findByCIN(String cin);
 }

@@ -1,5 +1,6 @@
 package com.Rama_Solution.backend_pfe.serviceImpl;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -46,6 +47,12 @@ public class EleveServiceImpl implements EleveInterface{
 	@Override
 	public List<Eleve> findEleveByIdClasse(Long IDCL) {
 		return eleveRepository.findEleveByClasse(IDCL);
+	}
+
+
+	@Override
+	public Eleve findEleveUnique(String nom, String prenom, String tel, Date date_nais) {
+		return eleveRepository.findEleveUnique(nom, prenom, tel, date_nais);
 	}
 	
 

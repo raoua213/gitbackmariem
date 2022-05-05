@@ -1,8 +1,10 @@
 package com.Rama_Solution.backend_pfe.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,5 +57,11 @@ public class EleveController {
 	public List<Eleve> findEleveByIdClasse(@PathVariable Long IDCL) {
 		return eleveServiceImpl.findEleveByIdClasse(IDCL);
 	}
+	
+	@GetMapping("/findEleveUnique/{nom}/{prenom}/{tel}/{date_nais}")
+	public Eleve findEleveUnique(@PathVariable String nom,@PathVariable String prenom,@PathVariable String tel ,@PathVariable @DateTimeFormat(pattern = "dd-mm-yyyy") Date date_nais) {
+		return eleveServiceImpl.findEleveUnique(nom, prenom, tel, date_nais);
+	}
+
 
 }

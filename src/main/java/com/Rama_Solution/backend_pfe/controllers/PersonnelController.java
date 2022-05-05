@@ -74,4 +74,10 @@ public class PersonnelController {
 		personnelServiceImpl.deletePersonnelById(id);
 		return "Personnel Deleted!";
 	}
+	
+	@GetMapping("/findByCIN/{cin}")
+	public Personnel findByCIN(@PathVariable String cin) {
+		return personnelServiceImpl.findByCIN(cin);
+	}
+
 }

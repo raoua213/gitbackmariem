@@ -22,4 +22,7 @@ public interface PersonnelRepository extends JpaRepository<Personnel, Long> {
 
 	@Query("SELECT DISTINCT fonction FROM Personnel ")
 	List<String> findAllFonction();
+	
+	@Query("Select p From Personnel p Where p.cin= :cin")
+	Personnel findByCIN(@Param("cin") String cin);
 }
