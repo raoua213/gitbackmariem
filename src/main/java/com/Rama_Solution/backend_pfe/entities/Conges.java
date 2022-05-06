@@ -22,7 +22,7 @@ public class Conges {
 	
 	
 	@ManyToOne
-	private Personnel presence;
+	private Personnel conges;
 	
 	public Long getIdConges() {
 		return idConges;
@@ -37,11 +37,12 @@ public class Conges {
 		this.dateC = dateC;
 	}	
 	
-	public Personnel getPresence() {
-		return presence;
+	
+	public Personnel getConges() {
+		return conges;
 	}
-	public void setPresence(Personnel presence) {
-		this.presence = presence;
+	public void setConges(Personnel conges) {
+		this.conges = conges;
 	}
 	public Conges(Long idConges, Date dateC) {
 		super();

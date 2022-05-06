@@ -16,10 +16,29 @@ public class Album {
 	@Column(name = "picByte", length = 1000)
 	private byte[] picByte;
 	
+	//@ManyToMany
+	//private Eleve fk_photo;
+
 	public Album() {
 		super();
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	/*public Eleve getFk_photo() {
+		return fk_photo;
+	}
+
+	public void setFk_photo(Eleve fk_photo) {
+		this.fk_photo = fk_photo;
+	}
+*/
 	public Album(String name, String type, byte[] picByte) {
 		super();
 		this.name = name;

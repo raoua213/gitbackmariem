@@ -44,4 +44,9 @@ public class ActiviteServiceImpl implements ActiviteInterface {
 		return activiteRepository.findActiviteByIdPersonnel(IDPersonnel);
 	}
 
+	@Override
+	public List<Activite> findActiviteByIdClasse(Long IdClasse) {
+		return activiteRepository.findActiviteByIdClasse(IdClasse);
+	}
+
 }

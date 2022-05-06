@@ -20,8 +20,25 @@ public class Classe {
 	@OneToMany (mappedBy = "fk_eleves")
 	private List<Eleve> fk_eleves;
 	
+	@OneToMany (mappedBy = "fk_activites")
+	private List<Activite> fk_activites;
 	
-	
+
+	public List<Eleve> getFk_eleves() {
+		return fk_eleves;
+	}
+
+	public void setFk_eleves(List<Eleve> fk_eleves) {
+		this.fk_eleves = fk_eleves;
+	}
+
+	public List<Activite> getFk_activites() {
+		return fk_activites;
+	}
+
+	public void setFk_activites(List<Activite> fk_activites) {
+		this.fk_activites = fk_activites;
+	}
 
 	public List<Eleve> getEleves() {
 		return fk_eleves;

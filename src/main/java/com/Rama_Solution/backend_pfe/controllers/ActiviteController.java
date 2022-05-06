@@ -48,8 +48,14 @@ public class ActiviteController {
 	}
 	
 	@GetMapping("/findActiviteByIdPersonnel/{IDPersonnel}")
-	List<Activite> findActiviteByIdPersonnel(@PathVariable Long IDPersonnel) {
+	public List<Activite> findActiviteByIdPersonnel(@PathVariable Long IDPersonnel) {
 		return activiteServiceImpl.findActiviteByIdPersonnel(IDPersonnel);
 	}
+	
+	@GetMapping("/findActiviteByIdClasse/{IdClasse}")
+	public List<Activite> findActiviteByIdClasse(@PathVariable Long IdClasse) {
+		return activiteServiceImpl.findActiviteByIdClasse(IdClasse);
+	}
+
 
 }

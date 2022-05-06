@@ -11,4 +11,6 @@ public interface ActiviteInterface {
 	List<Activite> findAllActivites();
 	Activite findActiviteById(Long id);
 	List<Activite> findActiviteByIdPersonnel(Long IDPersonnel);
+	List<Activite> findActiviteByIdClasse(Long IdClasse);
+
 }

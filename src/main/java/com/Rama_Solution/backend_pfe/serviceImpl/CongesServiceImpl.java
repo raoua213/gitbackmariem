@@ -22,7 +22,7 @@ public class CongesServiceImpl implements CongesInterface {
 	
 	@Override
 	public Conges addConges(Conges co) {
-		Long id = co.getPresence().getIdPersonnel();
+		Long id = co.getConges().getIdPersonnel();
 		personnelRepository.updateCongesTaken(1,id);
 		return congesRepository.save(co);
 	}

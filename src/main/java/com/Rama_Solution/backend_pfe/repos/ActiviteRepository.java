@@ -13,4 +13,8 @@ public interface ActiviteRepository extends JpaRepository<Activite, Long> {
 	//findActiviteByIdPersonnel
 	@Query("Select act From Activite act, Emploi em, Personnel p Where act.idActivite = em.fk_emploi.idActivite and p.idPersonnel = em.fk_emploi2.idPersonnel and em.fk_emploi2.idPersonnel= :IDPersonnel")
 	List<Activite> findActiviteByIdPersonnel(@Param("IDPersonnel") Long IDPersonnel);
+
+	//findActiviteByIdClasse
+	@Query("Select act From Activite act Where act.fk_activites.idClasse= :IdClasse")
+	List<Activite> findActiviteByIdClasse(@Param("IdClasse") Long IdClasse);
 }

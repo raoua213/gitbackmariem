@@ -12,10 +12,10 @@ import com.Rama_Solution.backend_pfe.entities.Conges;
 public interface CongesRepository extends JpaRepository<Conges, Long> {
 	
 		
-	@Query("Select co From Conges co Where co.presence.idPersonnel= :IdPersonnel and co.dateC= :DateC")
+	@Query("Select co From Conges co Where co.conges.idPersonnel= :IdPersonnel and co.dateC= :DateC")
 	List<Conges> findDispoPersonnelByConges(@Param("IdPersonnel") Long IdPersonnel, @Param("DateC") Date DateC);
 	
-	@Query("Select co From Conges co Where co.presence.idPersonnel= :IdPersonnel order by co.dateC DESC")
+	@Query("Select co From Conges co Where co.conges.idPersonnel= :IdPersonnel order by co.dateC DESC")
 	List<Conges> findCongesByIdPersonnel(@Param("IdPersonnel") Long IdPersonnel);
 	
 }

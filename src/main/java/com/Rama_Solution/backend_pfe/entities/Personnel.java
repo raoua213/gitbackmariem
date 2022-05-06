@@ -1,7 +1,6 @@
 package com.Rama_Solution.backend_pfe.entities;
 
 import java.util.List;
-import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,8 +39,19 @@ public class Personnel {
 	@OneToMany (mappedBy = "presence")
 	private List<Presence_personnel> presences;
 	
+	@OneToMany (mappedBy = "conges")
+	private List<Conges> conges;
+	
 	public List<Emploi> getFk_emploi2() {
 		return fk_emploi2;
+	}
+
+	public List<Conges> getConges() {
+		return conges;
+	}
+
+	public void setConges(List<Conges> conges) {
+		this.conges = conges;
 	}
 
 	public void setFk_emploi2(List<Emploi> fk_emploi2) {
@@ -174,28 +184,7 @@ public class Personnel {
 				+ ", nb_jour_initiale=" + nb_jour_initiale + ", nb_jour_taken=" + nb_jour_taken + "]";
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(cin, fonction, idPersonnel, mail, nb_jour_initiale, nb_jour_taken, nom,
-				prenom, salaire_de_base, tel);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Personnel other = (Personnel) obj;
-		return Objects.equals(cin, other.cin) && Objects.equals(fonction, other.fonction)
-				&& Objects.equals(idPersonnel, other.idPersonnel) && Objects.equals(mail, other.mail)
-				&& nb_jour_initiale == other.nb_jour_initiale && nb_jour_taken == other.nb_jour_taken && Objects.equals(nom, other.nom)
-				&& Objects.equals(prenom, other.prenom)
-				&& Double.doubleToLongBits(salaire_de_base) == Double.doubleToLongBits(other.salaire_de_base)
-				&& Objects.equals(tel, other.tel);
-	}
+	
 	
 
 }

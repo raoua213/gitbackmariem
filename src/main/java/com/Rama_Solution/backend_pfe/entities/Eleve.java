@@ -45,12 +45,27 @@ public class Eleve {
 	//@Column(name = "picByte", length = 1000)
 	//private byte[] img;
 
+	/*@OneToMany (mappedBy = "fk_photo")
+	private List<Album> fk_photo;
 	
+	public List<Album> getFk_photo() {
+		return fk_photo;
+	}
+	public void setFk_photo(List<Album> fk_photo) {
+		this.fk_photo = fk_photo;
+	}*/
+	public Classe getFk_eleves() {
+		return fk_eleves;
+	}
+	public void setFk_eleves(Classe fk_eleves) {
+		this.fk_eleves = fk_eleves;
+	}
 	@OneToMany (mappedBy = "fk_evaluation")
 	private List<Evaluation> fk_evaluation;
 	
 	@OneToMany (mappedBy = "presence")
 	private List<Presence_eleve> presences;
+	
 	
 	@ManyToOne
 	private Classe fk_eleves;
@@ -200,52 +215,7 @@ public class Eleve {
 		this.img = img;
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Eleve other = (Eleve) obj;
-		if (date_nais == null) {
-			if (other.date_nais != null)
-				return false;
-		} else if (!date_nais.equals(other.date_nais))
-			return false;
-		if (nom == null) {
-			if (other.nom != null)
-				return false;
-		} else if (!nom.equals(other.nom))
-			return false;
-		if (nom_parent == null) {
-			if (other.nom_parent != null)
-				return false;
-		} else if (!nom_parent.equals(other.nom_parent))
-			return false;
-		if (poid == null) {
-			if (other.poid != null)
-				return false;
-		} else if (!poid.equals(other.poid))
-			return false;
-		if (prenom == null) {
-			if (other.prenom != null)
-				return false;
-		} else if (!prenom.equals(other.prenom))
-			return false;
-		if (taille == null) {
-			if (other.taille != null)
-				return false;
-		} else if (!taille.equals(other.taille))
-			return false;
-		if (tel_parent == null) {
-			if (other.tel_parent != null)
-				return false;
-		} else if (!tel_parent.equals(other.tel_parent))
-			return false;
-		return true;
-	}
+	
 	
 	@Override
 	public String toString() {
