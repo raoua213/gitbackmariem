@@ -50,4 +50,10 @@ public class FactureServiceImpl implements FactureInterface {
 		return factureRepository.findElevesPayed_Date(DateF);
 	}
 
+	@Override
+	public double AllPaiement(Date dateE, double montant) {
+		List<Facture> lis = factureRepository.findElevesPayed_Date(dateE);
+		return lis.size()*montant;
+	}
+
 }

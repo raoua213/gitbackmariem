@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Facture;
 import com.Rama_Solution.backend_pfe.serviceImpl.FactureServiceImpl;
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -47,11 +46,18 @@ public class FactureController {
 		return factureServiceImpl.findFactureByIdEleve(IDEleve);
 	}
 	@GetMapping("/findFactureByIdEleve_Date/{IDEleve}/{DateF}")
-	public List<Facture> findFactureByIdEleve_Date(@PathVariable Long IDEleve,@PathVariable @JsonFormat(pattern="dd-MM-yyyy") Date DateF) {
+	public List<Facture> findFactureByIdEleve_Date(@PathVariable Long IDEleve,@PathVariable Date DateF) {
 		return factureServiceImpl.findFactureByIdEleve_Date(IDEleve, DateF);
 	}
 	@GetMapping("/findElevesPayed_Date/{DateF}")
 	public List<Facture> findElevesPayed_Date(@PathVariable Date DateF) {
 		return factureServiceImpl.findElevesPayed_Date(DateF);
+	}
+	
+	@GetMapping("/AllPaiement/{montant}")
+	public String AllPaiement(@RequestParam Date dateE, @PathVariable double montant) {
+		//List<Facture> lis = factureServiceImpl.findElevesPayed_Date(dateE);
+		
+		return "le montant totale pour le mois "+ dateE + " est : " + factureServiceImpl.AllPaiement(dateE, montant);
 	}
 }

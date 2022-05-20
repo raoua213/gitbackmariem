@@ -13,14 +13,13 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity 
-public class Stock {
+public class Commande {
 	@Id 
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Long idStock;
+	private Long idCommande;
 	@Column(nullable = false)
-	private double quantite;
+	private double montant_totale;
 	@JsonFormat(pattern="dd-MM-yyyy")
-	private Date date_fin_stock;
 	private Date date_commande;
 	
 	
@@ -37,48 +36,48 @@ public class Stock {
 		this.fk_Article = fk_Article;
 	}
 
-	public Stock() {
+	public Commande() {
 		super();
 	}
 
-	public Long getIdStock() {
-		return idStock;
-	}
-
-	public void setIdStock(Long idStock) {
-		this.idStock = idStock;
-	}
-
-	public Stock(double quantite, Date date_fin_stock, Date date_commande) {
+	
+	public Commande(Long idCommande, double montant_totale, Date date_commande) {
 		super();
-		this.quantite = quantite;
-		this.date_fin_stock = date_fin_stock;
+		this.idCommande = idCommande;
+		this.montant_totale = montant_totale;
 		this.date_commande = date_commande;
 	}
 
-	public double getQuantite() {
-		return quantite;
+	
+	public Long getIdCommande() {
+		return idCommande;
 	}
-	public void setQuantite(double quantite) {
-		this.quantite = quantite;
+
+	public void setIdCommande(Long idCommande) {
+		this.idCommande = idCommande;
 	}
-	public Date getDate_fin_stock() {
-		return date_fin_stock;
+
+	public double getMontant_totale() {
+		return montant_totale;
 	}
-	public void setDate_fin_stock(Date date_fin_stock) {
-		this.date_fin_stock = date_fin_stock;
+
+	public void setMontant_totale(double montant_totale) {
+		this.montant_totale = montant_totale;
 	}
+
 	public Date getDate_commande() {
 		return date_commande;
 	}
 	public void setDate_commande(Date date_commande) {
 		this.date_commande = date_commande;
 	}
+
 	@Override
 	public String toString() {
-		return "stock [idStock=" + idStock + ", quantite=" + quantite + ", date_fin_stock=" + date_fin_stock
-				+ ", date_commande=" + date_commande + "]";
+		return "Commande [idCommande=" + idCommande + ", montant_totale=" + montant_totale + ", date_commande="
+				+ date_commande + "]";
 	}
+	
 	
 	
 

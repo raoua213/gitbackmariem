@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Facture {
@@ -17,9 +17,9 @@ public class Facture {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idFacture;
 	@Column(nullable = false)
-	@JsonFormat(pattern = "dd-mm-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date from_date;
-	@JsonFormat(pattern = "dd-mm-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date to_date;
 	private double montent;
 	private boolean etat;

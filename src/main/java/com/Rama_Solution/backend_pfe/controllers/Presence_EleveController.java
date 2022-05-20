@@ -31,12 +31,12 @@ public class Presence_EleveController {
 	}
 
 	@GetMapping("/findByDatePE/{datePE}")
-	public List<Presence_eleve> findByDate(@PathVariable("datePE") @DateTimeFormat(pattern = "dd-mm-yyyy") Date datePE) {
+	public List<Presence_eleve> findByDate(@PathVariable("datePE") @DateTimeFormat(pattern = "dd-MM-yyyy") Date datePE) {
 		return presence_eleveServiceImpl.findByDatePE(datePE);
 	}
 
 	@GetMapping("/findBetween2Date/{datePEStart}/{datePEEnd}")
-	public List<Presence_eleve> findBetween2Date(@PathVariable("datePEStart") @DateTimeFormat(pattern = "dd-mm-yyyy") Date datePEStart, @PathVariable("datePEEnd")  @DateTimeFormat(pattern = "dd-mm-yyyy") Date datePEEnd) {
+	public List<Presence_eleve> findBetween2Date(@PathVariable("datePEStart") @DateTimeFormat(pattern = "dd-MM-yyyy") Date datePEStart, @PathVariable("datePEEnd")  @DateTimeFormat(pattern = "dd-mm-yyyy") Date datePEEnd) {
 		return presence_eleveServiceImpl.findBetween2Date(datePEStart, datePEEnd);
 	}
 	
@@ -67,7 +67,7 @@ public class Presence_EleveController {
 	}
 	
 	@GetMapping("/findByDate_Etat_Classe/{datePE}/{etat}/{idClasse}")
-	public List<Presence_eleve> findByDate_Etat_Classe(@PathVariable("datePE") @DateTimeFormat(pattern = "dd-mm-yyyy") Date datePE, @PathVariable Boolean etat, @PathVariable Long idClasse) {
+	public List<Presence_eleve> findByDate_Etat_Classe(@PathVariable("datePE") @DateTimeFormat(pattern = "dd-MM-yyyy") Date datePE, @PathVariable Boolean etat, @PathVariable Long idClasse) {
 		return presence_eleveServiceImpl.findByDate_Etat_Classe(datePE, etat, idClasse);
 	}
 	

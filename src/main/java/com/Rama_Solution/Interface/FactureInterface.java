@@ -13,4 +13,5 @@ public interface FactureInterface {
 	List<Facture>findFactureByIdEleve(Long IDEleve);
 	List<Facture> findFactureByIdEleve_Date(Long IDEleve, Date DateF);
 	List<Facture> findElevesPayed_Date(Date DateF);
+	double AllPaiement(Date dateE, double montant);
 }
