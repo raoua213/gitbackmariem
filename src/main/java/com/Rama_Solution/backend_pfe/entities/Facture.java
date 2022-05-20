@@ -1,5 +1,6 @@
 package com.Rama_Solution.backend_pfe.entities;
 
+import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -22,8 +23,7 @@ public class Facture {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date to_date;
 	private double montent;
-	private boolean etat;
-	//Creating PDF document object 
+	private Blob recu_paiement;
     
 	
 	@ManyToOne
@@ -34,15 +34,20 @@ public class Facture {
 	}
 
 	
-	public Facture(Long idFacture, Date from_date, Date to_date, double montent, boolean etat, Eleve factures) {
+	
+
+
+	public Facture(Long idFacture, Date from_date, Date to_date, double montent, Blob recu_paiement) {
 		super();
 		this.idFacture = idFacture;
 		this.from_date = from_date;
 		this.to_date = to_date;
 		this.montent = montent;
-		this.etat = etat;
-		this.factures = factures;
+		this.recu_paiement = recu_paiement;
 	}
+
+
+
 
 
 	public Long getIdFacture() {
@@ -77,16 +82,14 @@ public class Facture {
 		this.montent = montent;
 	}
 
-
-	public boolean isEtat() {
-		return etat;
+	public Blob getRecu_paiement() {
+		return recu_paiement;
 	}
 
 
-	public void setEtat(boolean etat) {
-		this.etat = etat;
+	public void setRecu_paiement(Blob recu_paiement) {
+		this.recu_paiement = recu_paiement;
 	}
-
 
 	public Eleve getFactures() {
 		return factures;
@@ -98,11 +101,15 @@ public class Facture {
 	}
 
 
+
+
+
 	@Override
 	public String toString() {
 		return "Facture [idFacture=" + idFacture + ", from_date=" + from_date + ", to_date=" + to_date + ", montent="
-				+ montent + ", etat=" + etat + ", factures=" + factures + "]";
+				+ montent + ", recu_paiement=" + recu_paiement + "]";
 	}
 
+	
 	
 }
