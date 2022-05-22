@@ -1,5 +1,6 @@
 package com.Rama_Solution.backend_pfe.serviceImpl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ public class PersonnelServiceImpl implements PersonnelInterface {
 
 	@Autowired
 	PersonnelRepository personnelRepository; 
+	@Autowired
+	Presence_personnelServiceImpl presence_personnelServiceImpl;
 	
 	@Override
 	public Personnel addPersonnel(Personnel p) {
@@ -55,9 +58,13 @@ public class PersonnelServiceImpl implements PersonnelInterface {
 		return personnelRepository.findByCIN(cin);
 	}
 
-	//@Override
-	//public void updateCongesReste(Long IdPersonnel) {
-		//personnelRepository.updateCongesReste(IdPersonnel);
-	//}
+	@Override
+	public double findSalaireByIdPersonnel_Date(Long idPersonnel, Date dateDebut, Date dateFin, double montant) {
+		int i = presence_personnelServiceImpl.findAllAbsentByIdPersonnel_Date(idPersonnel, dateDebut, dateFin);
+		Personnel p = personnelRepository.findById(idPersonnel).get();
+		return p.getSalaire_de_base()-(i*montant);
+	}
+
+	
 
 }

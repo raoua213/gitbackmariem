@@ -13,5 +13,7 @@ public interface FactureInterface {
 	List<Facture>findFactureByIdEleve(Long IDEleve);
 	List<Facture> findFactureByIdEleve_Date(Long IDEleve, Date DateF);
 	List<Facture> findElevesPayed_Date(Date DateF);
+	//hedhi 4alta
 	double AllPaiement(Date dateE, double montant);
+	double AllPaiement_Date(Date dateF);
 }

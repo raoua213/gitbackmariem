@@ -45,4 +45,9 @@ public class FicheServiceImpl implements FicheInterface {
 		return ficheRepository.findFicheByIdPersonnel_Date(IDP, dateF);
 	}
 
+	@Override
+	public double findAllSalaires_Date(Date DateDebut, Date DateFin) {
+		return ficheRepository.findAllSalaires_Date(DateDebut, DateFin);
+	}
+
 }

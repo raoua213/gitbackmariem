@@ -1,8 +1,10 @@
 package com.Rama_Solution.backend_pfe.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -60,14 +62,6 @@ public class PersonnelController {
 		personnelServiceImpl.updateCongesTaken(nb_jour, IdPersonnel);
 		return nb_jour;
 	}
-
-	//@PutMapping("/updateCongesReste/{IdPersonnel}")
-	//public String updateCongesReste(@PathVariable Long IdPersonnel) {
-		//personnelServiceImpl.updateCongesReste(IdPersonnel);
-		//return "Conges updated!";
-		
-	//}
-
 	
 	@DeleteMapping("/deletePersonnelById")
 	public String deletePersonnelById(@RequestParam Long id) {
@@ -80,4 +74,9 @@ public class PersonnelController {
 		return personnelServiceImpl.findByCIN(cin);
 	}
 
+	@GetMapping("/findSalaireByIdPersonnel_Date/{idPersonnel}/{dateDebut}/{dateFin}/{montant}")
+	public double findSalaireByIdPersonnel_Date(@PathVariable Long idPersonnel, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date dateDebut, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date dateFin, @PathVariable double montant) {
+		return personnelServiceImpl.findSalaireByIdPersonnel_Date(idPersonnel, dateDebut, dateFin, montant);
+	}
+	
 }

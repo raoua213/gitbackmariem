@@ -17,5 +17,8 @@ public interface FicheRepository extends JpaRepository<Fiche_de_paie, Long> {
 	//findFicheByIdPersonnel_Date
 	@Query("Select fi From Fiche_de_paie fi where fi.fiche.idPersonnel= :IDP and fi.dateF= :dateF")
 	List <Fiche_de_paie> findFicheByIdPersonnel_Date(@Param("IDP") Long IDP, @Param("dateF") Date dateF);
+	
+	@Query("Select Sum(fi.salaire_brut) From Fiche_de_paie fi Where fi.dateF between :DateDebut and :DateFin")
+	double findAllSalaires_Date(@Param("DateDebut") Date DateDebut, @Param("DateFin") Date DateFin);
 }
 

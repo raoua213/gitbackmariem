@@ -1,5 +1,6 @@
 package com.Rama_Solution.backend_pfe.serviceImpl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,11 @@ public class CommandeServiceImpl implements CommandeInterface {
 	@Override
 	public Commande updateCommande(Commande cm) {
 		return commandeRepository.save(cm);
+	}
+
+	@Override
+	public double AllCommandeDuMois(Date dateCDebut, Date dateCFin) {
+		return commandeRepository.AllCommandeDuMois(dateCDebut, dateCFin); 
 	}
 
 }

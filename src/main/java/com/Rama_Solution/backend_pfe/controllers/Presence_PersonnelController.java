@@ -55,4 +55,9 @@ public class Presence_PersonnelController {
 		return presence_personnelServiceImpl.updatePresence_personnel(pp);
 		
 	}
+	
+	@GetMapping("/findAllAbsentByIdPersonnel_Date/{idPersonnel}/{dateDebut}/{dateFin}")
+	public int findAllAbsentByIdPersonnel_Date(@PathVariable Long idPersonnel, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date dateDebut, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date dateFin) {
+		return presence_personnelServiceImpl.findAllAbsentByIdPersonnel_Date(idPersonnel, dateDebut, dateFin);
+	}
 }

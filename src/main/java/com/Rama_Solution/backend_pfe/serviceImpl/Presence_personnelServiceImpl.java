@@ -46,4 +46,9 @@ public class Presence_personnelServiceImpl implements Presence_PersonnelInterfac
 		return presence_personnelRepository.save(pp);
 	}
 
+	@Override
+	public int findAllAbsentByIdPersonnel_Date(Long idPersonnel, Date dateDebut, Date dateFin) {
+		return presence_personnelRepository.findAllAbsentByIdPersonnel_Date(idPersonnel, dateDebut, dateFin);
+	}
+
 }

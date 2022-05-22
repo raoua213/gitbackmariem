@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,18 +47,25 @@ public class FactureController {
 		return factureServiceImpl.findFactureByIdEleve(IDEleve);
 	}
 	@GetMapping("/findFactureByIdEleve_Date/{IDEleve}/{DateF}")
-	public List<Facture> findFactureByIdEleve_Date(@PathVariable Long IDEleve,@PathVariable Date DateF) {
+	public List<Facture> findFactureByIdEleve_Date(@PathVariable Long IDEleve,@PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date DateF) {
 		return factureServiceImpl.findFactureByIdEleve_Date(IDEleve, DateF);
 	}
 	@GetMapping("/findElevesPayed_Date/{DateF}")
-	public List<Facture> findElevesPayed_Date(@PathVariable Date DateF) {
+	public List<Facture> findElevesPayed_Date(@PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date DateF) {
 		return factureServiceImpl.findElevesPayed_Date(DateF);
 	}
 	
+	//4alta hedhi
 	@GetMapping("/AllPaiement/{montant}")
-	public String AllPaiement(@RequestParam Date dateE, @PathVariable double montant) {
+	public String AllPaiement(@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date dateE, @PathVariable double montant) {
 		//List<Facture> lis = factureServiceImpl.findElevesPayed_Date(dateE);
 		
 		return "le montant totale pour le mois "+ dateE + " est : " + factureServiceImpl.AllPaiement(dateE, montant);
 	}
+	
+	@GetMapping("AllPaiement_Date/{DateF}")
+	public double AllPaiement_Date(@PathVariable Date dateF) {
+		return factureServiceImpl.AllPaiement_Date(dateF);
+	}
+
 }

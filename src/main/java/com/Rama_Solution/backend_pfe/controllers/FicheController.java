@@ -51,4 +51,9 @@ public class FicheController {
 	private List <Fiche_de_paie> findFicheByIdPersonnel_Date(@PathVariable Long IDP,@PathVariable @DateTimeFormat(pattern = "dd-mm-yyyy") Date dateF) {
 		return ficheServiceImpl.findFicheByIdPersonnel_Date(IDP, dateF);
 	}
+	
+	@GetMapping("/findAllSalaires_Date/{DateDebut}/{DateFin}")
+	public double findAllSalaires_Date(@PathVariable @DateTimeFormat(pattern = "dd-mm-yyyy") Date DateDebut, @PathVariable @DateTimeFormat(pattern = "dd-mm-yyyy") Date DateFin) {
+		return ficheServiceImpl.findAllSalaires_Date(DateDebut, DateFin);
+	}
 }

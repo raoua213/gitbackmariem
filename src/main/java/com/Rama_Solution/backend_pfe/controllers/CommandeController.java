@@ -1,11 +1,14 @@
+
 package com.Rama_Solution.backend_pfe.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,6 +47,11 @@ public class CommandeController {
 	@PutMapping("/updateCommande")
 	public Commande updateCommande(@RequestBody Commande cm) {
 		return commandeServiceImpl.updateCommande(cm);
+	}
+	
+	@GetMapping("/AllCommandeDuMois/{dateCDebut}/{dateCFin}")
+	private double AllCommandeDuMois(@PathVariable Date dateCDebut, @PathVariable Date dateCFin) {
+		return commandeServiceImpl.AllCommandeDuMois(dateCDebut, dateCFin);
 	}
 
 }

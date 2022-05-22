@@ -12,6 +12,7 @@ public interface FicheInterface {
 	void deleteFicheById(Long id);
 	List <Fiche_de_paie> findFicheByIdPersonnel(Long IDP);
 	List <Fiche_de_paie> findFicheByIdPersonnel_Date(Long IDP, Date dateF);
+	double findAllSalaires_Date(Date DateDebut, Date DateFin);
 }
 
 

@@ -14,6 +14,7 @@ public interface PersonnelRepository extends JpaRepository<Personnel, Long> {
 	
 	@Query("SELECT p FROM Personnel p WHERE p.fonction = :fonction" )
 	List<Personnel> findPersonnelsByFonction(@Param("fonction") String fonction);
+	
 	@Transactional
 	@Modifying
 	@Query("update Personnel P set P.nb_jour_taken = P.nb_jour_taken + :nb_jour Where P.idPersonnel= :IdPersonnel")
@@ -25,4 +26,5 @@ public interface PersonnelRepository extends JpaRepository<Personnel, Long> {
 	
 	@Query("Select p From Personnel p Where p.cin= :cin")
 	Personnel findByCIN(@Param("cin") String cin);
+
 }

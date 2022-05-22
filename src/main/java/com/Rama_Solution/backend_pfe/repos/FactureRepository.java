@@ -18,4 +18,6 @@ public interface FactureRepository extends JpaRepository<Facture, Long> {
 	@Query("SELECT f.factures.nom, f.factures.prenom FROM Facture f WHERE :DateF between f.from_date and f.to_date")
 	List<Facture> findElevesPayed_Date(@Param("DateF") Date DateF);
 
+	@Query("Select Sum(f.montent) From Facture f Where :DateF between f.from_date and f.to_date")
+	double findAllPaiement_Date(Date DateF);
 }

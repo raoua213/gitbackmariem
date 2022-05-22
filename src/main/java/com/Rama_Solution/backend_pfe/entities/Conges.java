@@ -20,42 +20,53 @@ public class Conges {
 	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date dateC;
 	
+	/*@Column(nullable = false)
+	@JsonFormat(pattern="dd-MM-yyyy")
+	private Date ToDate;
+	public Date getToDate() {
+		return ToDate;
+	}
+	public void setToDate(Date toDate) {
+		ToDate = toDate;
+	}
+	*/
 	
 	@ManyToOne
 	private Personnel conges;
 	
+	public Date getDateC() {
+		return dateC;
+	}
+	public void setDateC(Date dateC) {
+		this.dateC = dateC;
+	}
 	public Long getIdConges() {
 		return idConges;
 	}
 	public void setIdConges(Long idConges) {
 		this.idConges = idConges;
 	}
-	public Date getDateC() {
-		return dateC;
-	}
-	public void setDateC(Date dateC) {
-		this.dateC = dateC;
-	}	
-	
-	
+		
 	public Personnel getConges() {
 		return conges;
 	}
 	public void setConges(Personnel conges) {
 		this.conges = conges;
 	}
+	
+	public Conges() {
+		super();
+	}
 	public Conges(Long idConges, Date dateC) {
 		super();
 		this.idConges = idConges;
 		this.dateC = dateC;
 	}
-	public Conges() {
-		super();
-	}
 	@Override
 	public String toString() {
 		return "Conges [idConges=" + idConges + ", dateC=" + dateC + "]";
 	}
+	
 	
 	
 	
