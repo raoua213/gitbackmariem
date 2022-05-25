@@ -42,25 +42,20 @@ public class FactureController {
 	public Facture findFactureById(@RequestParam Long id) {
 		return factureServiceImpl.findFactureById(id);
 	}
+	
 	@GetMapping("/findFactureByIdEleve/{IDEleve}")
 	public List<Facture> findFactureByIdEleve(@PathVariable Long IDEleve) {
 		return factureServiceImpl.findFactureByIdEleve(IDEleve);
 	}
+	
 	@GetMapping("/findFactureByIdEleve_Date/{IDEleve}/{DateF}")
 	public List<Facture> findFactureByIdEleve_Date(@PathVariable Long IDEleve,@PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date DateF) {
 		return factureServiceImpl.findFactureByIdEleve_Date(IDEleve, DateF);
 	}
+	
 	@GetMapping("/findElevesPayed_Date/{DateF}")
 	public List<Facture> findElevesPayed_Date(@PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date DateF) {
 		return factureServiceImpl.findElevesPayed_Date(DateF);
-	}
-	
-	//4alta hedhi
-	@GetMapping("/AllPaiement/{montant}")
-	public String AllPaiement(@RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") Date dateE, @PathVariable double montant) {
-		//List<Facture> lis = factureServiceImpl.findElevesPayed_Date(dateE);
-		
-		return "le montant totale pour le mois "+ dateE + " est : " + factureServiceImpl.AllPaiement(dateE, montant);
 	}
 	
 	@GetMapping("AllPaiement_Date/{DateF}")

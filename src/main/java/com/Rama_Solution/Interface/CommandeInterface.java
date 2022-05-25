@@ -12,4 +12,6 @@ public interface CommandeInterface {
 	void deleteCommandeById(Long id);
 	Commande updateCommande(Commande cm);
 	double AllCommandeDuMois(Date dateCDebut, Date dateCFin);
+	double AllCommandeDuMoisByCategorie(Date dateCDebut, Date dateCFin , String categorie);
+
 }

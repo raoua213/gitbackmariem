@@ -50,8 +50,13 @@ public class CommandeController {
 	}
 	
 	@GetMapping("/AllCommandeDuMois/{dateCDebut}/{dateCFin}")
-	private double AllCommandeDuMois(@PathVariable Date dateCDebut, @PathVariable Date dateCFin) {
+	public double AllCommandeDuMois(@PathVariable Date dateCDebut, @PathVariable Date dateCFin) {
 		return commandeServiceImpl.AllCommandeDuMois(dateCDebut, dateCFin);
+	}
+
+	@GetMapping("/AllCommandeDuMoisByCategorie")
+	public double AllCommandeDuMoisByCategorie(@PathVariable Date dateCDebut, @PathVariable Date dateCFin , @PathVariable String categorie) {
+		return commandeServiceImpl.AllCommandeDuMoisByCategorie(dateCDebut, dateCFin, categorie);
 	}
 
 }

@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity 
@@ -21,13 +20,7 @@ public class Article {
 	private double prix;
 	private String categorie;
 	private double quantité;
-	
-	public double getQuantité() {
-		return quantité;
-	}
-	public void setQuantité(double quantité) {
-		this.quantité = quantité;
-	}
+
 	@OneToMany (mappedBy = "fk_Art")
 	private List<Mouvement> fk_Art;
 	
@@ -37,14 +30,8 @@ public class Article {
 	public void setFk_Art(List<Mouvement> fk_Art) {
 		this.fk_Art = fk_Art;
 	}
-	public Commande getFk_Article() {
-		return fk_Article;
-	}
-	public void setFk_Article(Commande fk_Article) {
-		this.fk_Article = fk_Article;
-	}
-	@ManyToOne
-	private Commande fk_Article;
+	
+	
 	
 	public Article() {
 		super();
@@ -81,6 +68,13 @@ public class Article {
 	}
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
+	}
+	
+	public double getQuantité() {
+		return quantité;
+	}
+	public void setQuantité(double quantité) {
+		this.quantité = quantité;
 	}
 	@Override
 	public String toString() {

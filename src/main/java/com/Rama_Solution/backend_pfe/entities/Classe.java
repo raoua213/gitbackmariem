@@ -16,7 +16,17 @@ public class Classe {
 	private Long idClasse;
 	@Column(nullable = false)
 	private String nom;
+	@Column(nullable = false)
+	private double prix_mois;
 	
+	public double getPrix_mois() {
+		return prix_mois;
+	}
+
+	public void setPrix_mois(double prix_mois) {
+		this.prix_mois = prix_mois;
+	}
+
 	@OneToMany (mappedBy = "fk_eleves")
 	private List<Eleve> fk_eleves;
 	
@@ -53,11 +63,12 @@ public class Classe {
 	}
 
 	
-	public Classe(Long idClasse, String nom, int nombre_eleves) {
+
+	public Classe(Long idClasse, String nom, double prix_mois) {
 		super();
 		this.idClasse = idClasse;
 		this.nom = nom;
-		//this.nombre_eleves = nombre_eleves;
+		this.prix_mois = prix_mois;
 	}
 
 	public Long getIdClasse() {
@@ -76,19 +87,12 @@ public class Classe {
 		this.nom = nom;
 	}
 
-	//public int getNombre_eleves() {
-	//	return nombre_eleves;
-//	}
-
-//	public void setNombre_eleves(int nombre_eleves) {
-		//this.nombre_eleves = nombre_eleves;
-	//}
-
 	@Override
 	public String toString() {
-		return "Classe [idClasse=" + idClasse + ", nom=" + nom + ", nombre_eleves=" + "]";
+		return "Classe [idClasse=" + idClasse + ", nom=" + nom + ", prix_mois=" + prix_mois + "]";
 	}
-	
+
+
 	
 	
 }

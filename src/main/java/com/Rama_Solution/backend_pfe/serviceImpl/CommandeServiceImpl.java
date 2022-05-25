@@ -45,4 +45,9 @@ public class CommandeServiceImpl implements CommandeInterface {
 		return commandeRepository.AllCommandeDuMois(dateCDebut, dateCFin); 
 	}
 
+	@Override
+	public double AllCommandeDuMoisByCategorie(Date dateCDebut, Date dateCFin, String categorie) {
+			return commandeRepository.AllCommandeDuMoisByCategorie(dateCDebut, dateCFin, categorie);
+	}
+
 }

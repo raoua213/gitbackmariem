@@ -9,8 +9,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Rama_Solution.backend_pfe.entities.Conges;
@@ -23,10 +21,17 @@ public class CongesController {
 	@Autowired
 	CongesServiceImpl congesServiceImpl;
 
+	/*@SuppressWarnings("deprecation")
 	@PostMapping("/addConges")
-	public Conges addConges(@RequestBody Conges co) {
-		return congesServiceImpl.addConges(co);
-	}
+	public Conges addConges(@RequestBody Date From, Date To) {
+		int i=From.getDay();
+		int j=To.getDay();
+		for(int n=i;n<j+1;n++) {
+			return congesServiceImpl.addConges(From.);	
+		}
+			
+		
+	}*/
 	
 	@GetMapping("/findAllConges")
 	public List<Conges> findAllConges() {

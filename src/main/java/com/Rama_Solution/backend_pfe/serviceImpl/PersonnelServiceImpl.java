@@ -59,10 +59,10 @@ public class PersonnelServiceImpl implements PersonnelInterface {
 	}
 
 	@Override
-	public double findSalaireByIdPersonnel_Date(Long idPersonnel, Date dateDebut, Date dateFin, double montant) {
+	public double findSalaireByIdPersonnel_Date(Long idPersonnel, Date dateDebut, Date dateFin) {
 		int i = presence_personnelServiceImpl.findAllAbsentByIdPersonnel_Date(idPersonnel, dateDebut, dateFin);
 		Personnel p = personnelRepository.findById(idPersonnel).get();
-		return p.getSalaire_de_base()-(i*montant);
+		return p.getSalaire_de_base()-(i*(p.getSalaire_de_base()/20));
 	}
 
 	

@@ -74,9 +74,9 @@ public class PersonnelController {
 		return personnelServiceImpl.findByCIN(cin);
 	}
 
-	@GetMapping("/findSalaireByIdPersonnel_Date/{idPersonnel}/{dateDebut}/{dateFin}/{montant}")
-	public double findSalaireByIdPersonnel_Date(@PathVariable Long idPersonnel, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date dateDebut, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date dateFin, @PathVariable double montant) {
-		return personnelServiceImpl.findSalaireByIdPersonnel_Date(idPersonnel, dateDebut, dateFin, montant);
+	@GetMapping("/findSalaireByIdPersonnel_Date/{idPersonnel}/{dateDebut}/{dateFin}")
+	public double findSalaireByIdPersonnel_Date(@PathVariable Long idPersonnel, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date dateDebut, @PathVariable @DateTimeFormat(pattern = "dd-MM-yyyy") Date dateFin) {
+		return personnelServiceImpl.findSalaireByIdPersonnel_Date(idPersonnel, dateDebut, dateFin);
 	}
 	
 }

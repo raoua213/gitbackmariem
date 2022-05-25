@@ -23,18 +23,20 @@ public class Commande {
 	private Date date_commande;
 	
 	
-	@OneToMany (mappedBy = "fk_Article")
-	private List<Article> fk_Article;
+	@OneToMany (mappedBy = "fk_Com")
+	private List<Mouvement> fk_Com;
 	
 	
-	
-	public List<Article> getFk_Article() {
-		return fk_Article;
+
+	public List<Mouvement> getFk_Com() {
+		return fk_Com;
 	}
 
-	public void setFk_Article(List<Article> fk_Article) {
-		this.fk_Article = fk_Article;
+
+	public void setFk_Com(List<Mouvement> fk_Com) {
+		this.fk_Com = fk_Com;
 	}
+
 
 	public Commande() {
 		super();

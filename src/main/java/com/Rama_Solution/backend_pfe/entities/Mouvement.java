@@ -1,15 +1,11 @@
 package com.Rama_Solution.backend_pfe.entities;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity 
@@ -18,17 +14,14 @@ public class Mouvement {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long idMouvement;
 	@Column(nullable = false)
-	private double quantite_consome;
-	@Column(nullable = false)
-	private double quantite_reste;
-	@Column(nullable = false)
-	@JsonFormat(pattern="dd-MM-yyyy")
-	private Date dateCon;
+	private double quantite;
 	
 	
 	@ManyToOne
 	private Article fk_Art;
 	
+	@ManyToOne
+	private Commande fk_Com;
 	
 	public Article getFk_Art() {
 		return fk_Art;
@@ -38,16 +31,23 @@ public class Mouvement {
 		this.fk_Art = fk_Art;
 	}
 
+	
+	public Commande getFk_Com() {
+		return fk_Com;
+	}
+
+	public void setFk_Com(Commande fk_Com) {
+		this.fk_Com = fk_Com;
+	}
+
 	public Mouvement() {
 		super();
 	}
 	
-	public Mouvement(Long idMouvement, double quantite_consome, double quantite_reste, Date dateCon) {
+	public Mouvement(Long idMouvement, double quantite) {
 		super();
 		this.idMouvement = idMouvement;
-		this.quantite_consome = quantite_consome;
-		this.quantite_reste = quantite_reste;
-		this.dateCon = dateCon;
+		this.quantite = quantite;
 	}
 	
 	public Long getIdMouvement() {
@@ -56,29 +56,18 @@ public class Mouvement {
 	public void setIdMouvement(Long idMouvement) {
 		this.idMouvement = idMouvement;
 	}
-	public double getQuantite_reste() {
-		return quantite_reste;
+	
+	public double getQuantite() {
+		return quantite;
 	}
-	public void setQuantite_reste(double quantite_reste) {
-		this.quantite_reste = quantite_reste;
-	}
-	public double getQuantite_consome() {
-		return quantite_consome;
-	}
-	public void setQuantite_consome(double quantite_consome) {
-		this.quantite_consome = quantite_consome;
+	public void setQuantite(double quantite) {
+		this.quantite = quantite;
 	}
 	
-	public Date getDateCon() {
-		return dateCon;
-	}
-	public void setDateCon(Date dateCon) {
-		this.dateCon = dateCon;
-	}
+	
 	@Override
 	public String toString() {
-		return "Mouvement [idMouvement=" + idMouvement + ", quantite_consome=" + quantite_consome + ", quantite_reste="
-				+ quantite_reste + ", dateCon=" + dateCon + "]";
+		return "Mouvement [idMouvement=" + idMouvement + ", quantite=" + quantite + "]";
 	}
 	
 	

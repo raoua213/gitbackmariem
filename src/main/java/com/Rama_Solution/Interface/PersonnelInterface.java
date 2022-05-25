@@ -15,5 +15,5 @@ public interface PersonnelInterface {
 	List<Personnel> findPersonnelsByFonction(String fonction);
 	void updateCongesTaken(int nb_jour,Long IdPersonnel);
 	Personnel findByCIN(String cin);
-	double findSalaireByIdPersonnel_Date(Long idPersonnel, Date dateDebut, Date dateFin, double montant);
+	double findSalaireByIdPersonnel_Date(Long idPersonnel, Date dateDebut, Date dateFin);
 }
