@@ -58,9 +58,21 @@ public class FactureController {
 		return factureServiceImpl.findElevesPayed_Date(DateF);
 	}
 	
+	@GetMapping("/CalculMontant/{IDEleve}/{NbMois}")
+	public double CalculMontant(@PathVariable Long IDEleve, @PathVariable int NbMois) {
+		return factureServiceImpl.CalculMontant(IDEleve, NbMois);
+	}
+
+	
 	@GetMapping("AllPaiement_Date/{DateF}")
 	public double AllPaiement_Date(@PathVariable Date dateF) {
 		return factureServiceImpl.AllPaiement_Date(dateF);
 	}
+	//hedhi somme
+	@GetMapping("/CalculSomme/{dateC}")
+	public double CalculSomme(Date dateC) {
+		return factureServiceImpl.CalculSomme(dateC);
+	}
+
 
 }

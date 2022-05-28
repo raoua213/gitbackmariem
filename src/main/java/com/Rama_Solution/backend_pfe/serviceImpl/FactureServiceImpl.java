@@ -8,16 +8,20 @@ import org.springframework.stereotype.Service;
 
 import com.Rama_Solution.Interface.FactureInterface;
 import com.Rama_Solution.backend_pfe.entities.Facture;
+import com.Rama_Solution.backend_pfe.repos.CommandeRepository;
 import com.Rama_Solution.backend_pfe.repos.FactureRepository;
 
 @Service
 public class FactureServiceImpl implements FactureInterface {
 	@Autowired
 	FactureRepository factureRepository;
+	@Autowired
+	CommandeRepository commandeRepository;
+
 
 	@Override
 	public Facture addFacture(Facture f) {
-		return factureRepository.save(f);
+			return factureRepository.save(f);
 	}
 
 	@Override
@@ -55,5 +59,19 @@ public class FactureServiceImpl implements FactureInterface {
 	public double AllPaiement_Date(Date DateF) {
 		return factureRepository.findAllPaiement_Date(DateF);
 	}
+
+	@Override
+	public double CalculMontant(Long IDEleve, int NbMois) {
+		return factureRepository.CalculMontant(IDEleve, NbMois);
+	}
+//hedhi somme 
+	@Override
+	public double CalculSomme(Date dateC) {
+		double i = factureRepository.findAllPaiement_Date(dateC);
+		double j = commandeRepository.AllCommandeDuMois(dateC, dateC);
+		return i-j;
+	}
+	
+	
 
 }

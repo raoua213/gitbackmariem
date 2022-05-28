@@ -20,17 +20,6 @@ public class Conges {
 	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date dateC;
 	
-	/*@Column(nullable = false)
-	@JsonFormat(pattern="dd-MM-yyyy")
-	private Date ToDate;
-	public Date getToDate() {
-		return ToDate;
-	}
-	public void setToDate(Date toDate) {
-		ToDate = toDate;
-	}
-	*/
-	
 	@ManyToOne
 	private Personnel conges;
 	

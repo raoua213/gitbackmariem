@@ -13,5 +13,7 @@ public interface FactureInterface {
 	List<Facture>findFactureByIdEleve(Long IDEleve);
 	List<Facture> findFactureByIdEleve_Date(Long IDEleve, Date DateF);
 	List<Facture> findElevesPayed_Date(Date DateF);
+	double CalculMontant(Long IDEleve, int NbMois);
 	double AllPaiement_Date(Date dateF);
+	double CalculSomme(Date dateC);
 }
